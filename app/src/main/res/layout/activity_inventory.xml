@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.usuario.inventory.InventoryActivity"
+    android:stretchColumns="1">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/txvName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/txvName"/>
+
+        <EditText
+            android:id="@+id/EdtName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/txvDescripton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/txvDescripcion"/>
+
+        <EditText
+            android:id="@+id/EdtDescripton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/txvCreationDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/txvCreationDate"/>
+
+        <EditText
+            android:id="@+id/EdtCreationDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="date"
+            tools:ignore="LabelFor" />
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnChange"
+            android:layout_span="2"
+            android:layout_gravity="center"/>
+    </TableRow>
+
+</TableLayout>

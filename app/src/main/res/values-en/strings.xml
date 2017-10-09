@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txvSignIn">Sign In</string>
+    <string name="chkRemenber">Remenber me</string>
+    <string name="txvSignup">Sing Up</string>
+    <string name="txvUser">User</string>
+    <string name="txvPassword">Password</string>
+    <string name="txvName">Name</string>
+    <string name="txvDescripcion">Description</string>
+    <string name="txvCreationDate">CreationDate</string>
+    <string name="btnChange">"Status Change "</string>
+</resources>
