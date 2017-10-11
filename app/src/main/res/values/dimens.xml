@@ -4,4 +4,6 @@
     <dimen name="txvUserPassword_margin">24dp</dimen>
     <dimen name="btnGoogleSignIn_margin">64dp</dimen>
     <dimen name="btnFacebookSignIn_margin">8dp</dimen>
+    <dimen name="imgDashboardWidth">120dp</dimen>
+    <dimen name="imgDashboardHeight">120dp</dimen>
 </resources>

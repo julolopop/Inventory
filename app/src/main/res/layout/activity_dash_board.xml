@@ -6,71 +6,111 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:rowCount="4"
+    android:id="@+id/gridDashboard"
     tools:context="com.example.usuario.inventory.DashBoardActivity">
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/whiteboard" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/table" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/proyector" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/printer" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/mouse" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/monitor" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/keyboard" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/inventory" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cpu" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/closet" />
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/inventory"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill"/>
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/chair" />
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/closet"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/keyboard"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/cpu"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill"/>
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/chair"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/monitor"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/mouse"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill"/>
+
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/printer"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill"/>
+
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/proyector"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/table"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
+
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="@dimen/imgDashboardWidth"
+        android:layout_height="@dimen/imgDashboardHeight"
+        app:srcCompat="@drawable/whiteboard"
+        app:layout_column="1"
+        app:layout_columnWeight="1"
+        app:layout_gravity="fill" />
 </GridLayout>
