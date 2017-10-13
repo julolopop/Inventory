@@ -16,7 +16,7 @@ public class DashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-        gridDashBoard = ((GridLayout) findViewById(R.id.gridDashboard)); // Da problemas ya que pone que no se inicializa = null
+        gridDashBoard = ((GridLayout) findViewById(R.id.gridDashboard)); // Da problemas ya que pone que no se inicializa = null por que el gridlayout no es de support:gridlayout
 
         //definir un array int que contendrá el id de las imagenes
         int[] imagenes = {R.drawable.chair, R.drawable.closet, R.drawable.cpu, R.drawable.inventory, R.drawable.keyboard, R.drawable.monitor, R.drawable.mouse,
@@ -35,19 +35,22 @@ public class DashBoardActivity extends AppCompatActivity {
             if (imageViewArrayList.get(i) instanceof ImageView)
                 ((ImageView)imageViewArrayList.get(i)).setImageResource(imagenes[i]);
         }*/
-        int with = (int) getResources().getDimension(R.dimen.imgDashboardWidth);
-        int height = (int) getResources().getDimension(R.dimen.imgDashboardHeight);
+        int width=(int)getResources().getDimension(R.dimen.imgDashboardWidth);
+        int height=(int)getResources().getDimension(R.dimen.imgDashboardHeight);
+
+
 
         ArrayList<ImageView> imageViewArrayList = new ArrayList<ImageView>();
 
         for (int i = 0; i < imagenes.length; i++) {
             imageViewArrayList.add(new ImageView(this));
-            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = with;
-            params.height= height;
-            params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
-            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED,GridLayout.FILL,1f);
             imageViewArrayList.get(i).setImageResource(imagenes[i]);
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.width=width;
+            params.height=height;
+            params.rowSpec=GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f);
+            params.columnSpec=GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f);
+            imageViewArrayList.get(i).setLayoutParams(params);
             gridDashBoard.addView(imageViewArrayList.get(i));
         }
 
