@@ -12,21 +12,22 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button btnSingIn;
     private TextView txvSingUp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        this.btnSingIn = ((Button)findViewById(R.id.btnSignIn));
-        this.txvSingUp = ((TextView)findViewById(R.id.txvSignup));
+        this.btnSingIn = ((Button) findViewById(R.id.btnSignIn));
+        this.txvSingUp = ((TextView) findViewById(R.id.txvSignup));
 
-
+        //setPaintFlags sirve para poder ponerle un UNDERLINE al testo
         this.txvSingUp.setPaintFlags(this.txvSingUp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
+        //boten para iniciar el DashBoardActivity
         this.btnSingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent singIn = new Intent(LoginActivity.this,DashBoardActivity.class);
+                Intent singIn = new Intent(LoginActivity.this, DashBoardActivity.class);
                 startActivity(singIn);
             }
         });

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.usuario.inventory.ProductosActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="txtV_FechaCompra,txtV_Nombre,txtV_Tipo,txtV_Modelo,txtV_Precio,txtV_Serial,txtV_Subcategoria,txtV_Vendor,txtV_Categoria,txtV_DescProducto,txtV_URL"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="188dp" />
+
+
+            <EditText
+                android:id="@+id/edT_Nombre"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginEnd="50dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Nombre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <EditText
+                android:id="@+id/edT_Serial"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:ems="10"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Serial"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <EditText
+                android:id="@+id/edT_Vendor"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Vendor"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <EditText
+                android:id="@+id/edT_Modelo"
+                android:layout_width="0dp"
+                android:layout_height="37dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Modelo"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <Spinner
+                android:id="@+id/spn_Categoria"
+                android:layout_width="110dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Categoria"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <Spinner
+                android:id="@+id/spn_SubCategoria"
+                android:layout_width="110dp"
+                android:layout_height="24dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Subcategoria"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+            <Spinner
+                android:id="@+id/spn_Tipo"
+                android:layout_width="110dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Tipo"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+
+            <EditText
+                android:id="@+id/edT_DescProducto"
+                android:layout_width="0dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="16dp"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/spn_Tipo" />
+
+            <EditText
+                android:id="@+id/edT_Precio"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:inputType="numberDecimal"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Precio"
+                app:layout_constraintEnd_toEndOf="@+id/edT_DescProducto"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+
+            <EditText
+                android:id="@+id/edT_FechaCompra"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:inputType="date"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_FechaCompra"
+                app:layout_constraintEnd_toEndOf="@+id/edT_Precio"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+
+            <EditText
+                android:id="@+id/edT_URL"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:inputType="textUri"
+                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_URL"
+                app:layout_constraintEnd_toEndOf="@+id/edT_FechaCompra"
+                app:layout_constraintStart_toEndOf="@+id/barrier" />
+
+
+            <EditText
+                android:id="@+id/edT_Notas"
+                android:layout_width="0dp"
+                android:layout_height="102dp"
+                android:layout_marginTop="8dp"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Notas" />
+
+            <ImageView
+                android:id="@+id/imgV_Logo"
+                android:layout_width="139dp"
+                android:layout_height="153dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/edT_Description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/monitor" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guL_TextVs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
+
+            <TextView
+                android:id="@+id/txtV_Nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Nombre"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/imgV_Logo" />
+
+            <TextView
+                android:id="@+id/txtV_Serial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Serial"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Nombre" />
+
+            <TextView
+                android:id="@+id/txtV_Vendor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Vendor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Serial" />
+
+            <TextView
+                android:id="@+id/txtV_Modelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Modelo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Vendor" />
+
+            <TextView
+                android:id="@+id/txtV_Categoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Categoria"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Modelo" />
+
+            <TextView
+                android:id="@+id/txtV_Subcategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Subcategoria"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Categoria" />
+
+            <TextView
+                android:id="@+id/txtV_Tipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Tipo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Subcategoria" />
+
+            <TextView
+                android:id="@+id/txtV_DescProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_DescProducto"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Tipo" />
+
+            <TextView
+                android:id="@+id/txtV_Precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:text="@string/txtV_Precio"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_DescProducto" />
+
+            <TextView
+                android:id="@+id/txtV_FechaCompra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_FechaCompra"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Precio" />
+
+            <TextView
+                android:id="@+id/txtV_URL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_URL"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_FechaCompra" />
+
+            <TextView
+                android:id="@+id/txtV_Notas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/txtV_Notas"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
+                app:layout_constraintTop_toBottomOf="@+id/txtV_URL" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
