@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="189dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,8 +22,7 @@
                 android:layout_height="wrap_content"
                 app:barrierDirection="right"
                 app:constraint_referenced_ids="txtV_FechaCompra,txtV_Nombre,txtV_Tipo,txtV_Modelo,txtV_Precio,txtV_Serial,txtV_Subcategoria,txtV_Vendor,txtV_Categoria,txtV_DescProducto,txtV_URL"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="188dp" />
+                tools:ignore="MissingConstraints" />
 
 
             <EditText
@@ -37,60 +38,65 @@
                 android:id="@+id/edT_Serial"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
+                android:layout_marginTop="8dp"
                 android:ems="10"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Serial"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_Nombre" />
 
             <EditText
                 android:id="@+id/edT_Vendor"
                 android:layout_width="0dp"
                 android:layout_height="36dp"
-
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Vendor"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_Serial" />
 
             <EditText
                 android:id="@+id/edT_Modelo"
                 android:layout_width="0dp"
                 android:layout_height="37dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Modelo"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_Vendor" />
 
             <Spinner
                 android:id="@+id/spn_Categoria"
                 android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Categoria"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_Modelo" />
 
             <Spinner
                 android:id="@+id/spn_SubCategoria"
                 android:layout_width="110dp"
                 android:layout_height="24dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Subcategoria"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/spn_Categoria" />
 
             <Spinner
                 android:id="@+id/spn_Tipo"
                 android:layout_width="110dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Tipo"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/spn_SubCategoria" />
 
 
             <EditText
                 android:id="@+id/edT_DescProducto"
                 android:layout_width="0dp"
                 android:layout_height="122dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
@@ -100,31 +106,33 @@
                 android:id="@+id/edT_Precio"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
+                android:layout_marginTop="8dp"
                 android:inputType="numberDecimal"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Precio"
                 app:layout_constraintEnd_toEndOf="@+id/edT_DescProducto"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_DescProducto" />
 
 
             <EditText
                 android:id="@+id/edT_FechaCompra"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
+                android:layout_marginTop="8dp"
                 android:inputType="date"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_FechaCompra"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Precio"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_Precio" />
 
 
             <EditText
                 android:id="@+id/edT_URL"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
                 android:inputType="textUri"
-                app:layout_constraintBaseline_toBaselineOf="@+id/txtV_URL"
                 app:layout_constraintEnd_toEndOf="@+id/edT_FechaCompra"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                app:layout_constraintTop_toBottomOf="@+id/edT_FechaCompra" />
 
 
             <EditText
@@ -170,39 +178,36 @@
                 android:id="@+id/txtV_Serial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/txtV_Serial"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_Serial"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Nombre" />
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Vendor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/txtV_Vendor"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_Vendor"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Serial" />
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Modelo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/txtV_Modelo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_Modelo"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Vendor" />
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Categoria"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="27dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/txtV_Categoria"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -236,45 +241,41 @@
                 android:id="@+id/txtV_DescProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/txtV_DescProducto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_DescProducto"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Tipo" />
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Precio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
                 android:text="@string/txtV_Precio"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_Precio"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_DescProducto" />
+                app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_FechaCompra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/txtV_FechaCompra"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_FechaCompra"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Precio" />
+                app:layout_constraintStart_toEndOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_URL"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="24dp"
                 android:text="@string/txtV_URL"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBaseline_toBaselineOf="@+id/edT_URL"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
-                app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_FechaCompra" />
+                app:layout_constraintStart_toEndOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Notas"
@@ -286,6 +287,17 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toEndOf="@+id/guL_TextVs"
                 app:layout_constraintTop_toBottomOf="@+id/txtV_URL" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="39dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/edT_Serial"
+                app:srcCompat="@drawable/qr"
+                tools:layout_editor_absoluteY="200dp" />
 
 
         </android.support.constraint.ConstraintLayout>
