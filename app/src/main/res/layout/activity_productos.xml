@@ -171,6 +171,7 @@
                 android:text="@string/txtV_Nombre"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
                 app:layout_constraintTop_toBottomOf="@+id/imgV_Logo" />
 
@@ -182,6 +183,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_Serial"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
@@ -192,6 +194,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_Vendor"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
@@ -202,16 +205,18 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_Modelo"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
                 android:id="@+id/txtV_Categoria"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/txtV_Categoria"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
                 app:layout_constraintTop_toBottomOf="@+id/txtV_Modelo" />
 
@@ -219,10 +224,11 @@
                 android:id="@+id/txtV_Subcategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/txtV_Subcategoria"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
                 app:layout_constraintTop_toBottomOf="@+id/txtV_Categoria" />
 
@@ -230,10 +236,11 @@
                 android:id="@+id/txtV_Tipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/txtV_Tipo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
                 app:layout_constraintTop_toBottomOf="@+id/txtV_Subcategoria" />
 
@@ -245,6 +252,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_DescProducto"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
@@ -255,6 +263,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_Precio"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs" />
 
             <TextView
@@ -265,6 +274,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_FechaCompra"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/guL_TextVs" />
 
             <TextView
@@ -275,6 +285,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBaseline_toBaselineOf="@+id/edT_URL"
                 app:layout_constraintEnd_toStartOf="@+id/barrier"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/guL_TextVs" />
 
             <TextView
@@ -296,8 +307,8 @@
                 android:layout_marginStart="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/edT_Serial"
-                app:srcCompat="@drawable/qr"
-                tools:layout_editor_absoluteY="200dp" />
+                app:layout_constraintTop_toTopOf="@+id/edT_Serial"
+                app:srcCompat="@drawable/qr" />
 
 
         </android.support.constraint.ConstraintLayout>

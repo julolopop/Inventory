@@ -1,6 +1,7 @@
 package com.example.usuario.inventory;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayout;
@@ -21,9 +22,12 @@ public class DashBoardActivity extends AppCompatActivity {
         listenerDashBoard = new ClickListenerDashBoard();
 
 
-
         //definir un array int que contendrá el id de las imagenes
-        int[] imagenes = {R.drawable.product,R.drawable.seciones,R.drawable.preferencias,R.drawable.dependencia,R.drawable.inventory};
+        Imagenes[] imagenes = {new Imagenes(R.drawable.product, 0),
+                new Imagenes(R.drawable.seciones,1),
+                new Imagenes(R.drawable.preferencias,2),
+                new Imagenes(R.drawable.dependencia,3),
+                new Imagenes(R.drawable.inventory,4)};
 
         //Definir in array de imageView
         //ImageView[] imageViews = new ImageView[imagenes.length];  // no se utiliza array de objetos se deve utilizar vector o coleciones
@@ -46,8 +50,8 @@ public class DashBoardActivity extends AppCompatActivity {
 
         for (int i = 0; i < imagenes.length; i++) {
             imageView = new ImageView(this);
-            imageView.setId(i);
-            imageView.setImageResource(imagenes[i]);
+            imageView.setId(imagenes[i].getId());
+            imageView.setImageResource(imagenes[i].getImg());
 
             //imageViewArrayList.add(new ImageView(this));
 
@@ -69,7 +73,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
     }
 
-//clase para el Onclick de las imagenes
+    //clase para el Onclick de las imagenes
     class ClickListenerDashBoard implements View.OnClickListener {
 
         @Override
