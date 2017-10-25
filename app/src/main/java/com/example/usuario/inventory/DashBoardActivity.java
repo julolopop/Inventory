@@ -85,6 +85,10 @@ public class DashBoardActivity extends AppCompatActivity {
                     intent = new Intent(DashBoardActivity.this, ProductosActivity.class);
                     startActivity(intent);
                     break;
+                case 3:
+                    intent = new Intent(DashBoardActivity.this, DependencyActivity.class);
+                    startActivity(intent);
+                    break;
                 case 4:
                     intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
                     startActivity(intent);

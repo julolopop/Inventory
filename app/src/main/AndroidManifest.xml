@@ -21,7 +21,9 @@
             android:theme="@style/LoginTheme" />
         <activity android:name=".InventoryActivity" />
         <activity android:name=".DashBoardActivity" />
-        <activity android:name=".ProductosActivity"></activity>
+        <activity android:name=".ProductosActivity" />
+        <activity android:name=".DependencyActivity" />
+        <activity android:name=".InventoryAplication"></activity>
     </application>
 
 </manifest>
