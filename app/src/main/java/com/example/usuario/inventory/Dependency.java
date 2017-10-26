@@ -4,11 +4,11 @@ package com.example.usuario.inventory;
  * Created by usuario on 25/10/17.
  */
 
-class Dependency {
+public class Dependency {
     private int _ID;
-    private String name;
-    private String shortname;
-    private String descripcion;
+    private  String name;
+    private  String shortname;
+    private String description;
 
     public int get_ID() {
         return _ID;
@@ -34,19 +34,19 @@ class Dependency {
         this.shortname = shortname;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Dependency(int _ID, String name, String shortname, String descripcion) {
+    public Dependency(int _ID, String name, String shortname, String description) {
         this._ID = _ID;
         this.name = name;
         this.shortname = shortname;
-        this.descripcion = descripcion;
+        this.description = description;
     }
 
     @Override
@@ -55,7 +55,7 @@ class Dependency {
                 "_ID=" + _ID +
                 ", name='" + name + '\'' +
                 ", shortname='" + shortname + '\'' +
-                ", descripcion='" + descripcion + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
