@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/btnGoogleSignIn_margin"
         android:background="@color/colorGoogle"
-        android:drawableStart="@mipmap/google"
+        android:drawableStart="@drawable/ic_google"
         android:text="@string/btnGoogleSignIn" />
 
     <Button
@@ -104,6 +104,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/btnFacebookSignIn_margin"
         android:background="@color/colorFacebook"
-        android:drawableStart="@mipmap/facebook"
+        android:drawableStart="@drawable/ic_facebook"
         android:text="@string/btnFacebookSignIn" />
 </LinearLayout>
