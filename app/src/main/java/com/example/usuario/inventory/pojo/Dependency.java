@@ -1,4 +1,4 @@
-package com.example.usuario.inventory;
+package com.example.usuario.inventory.pojo;
 
 /**
  * Created by usuario on 25/10/17.
