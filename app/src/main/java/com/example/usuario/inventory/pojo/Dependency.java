@@ -1,8 +1,11 @@
 package com.example.usuario.inventory.pojo;
 
 /**
- * Created by usuario on 25/10/17.
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion Clase que guarda la informacion de dependencias
  */
+
 
 public class Dependency {
     private int _ID;

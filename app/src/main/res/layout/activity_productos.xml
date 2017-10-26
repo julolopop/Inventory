@@ -30,7 +30,8 @@
                 android:layout_marginEnd="50dp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/txtV_Nombre"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/barrier" />
+                app:layout_constraintStart_toEndOf="@+id/barrier"
+                android:background="@drawable/shape_editext"/>
 
             <EditText
                 android:id="@+id/edT_Serial"
@@ -40,7 +41,8 @@
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Nombre" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_Nombre"
+                android:background="@drawable/shape_editext"/>
 
             <EditText
                 android:id="@+id/edT_Vendor"
@@ -49,7 +51,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Serial" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_Serial"
+                android:background="@drawable/shape_editext"/>
 
             <EditText
                 android:id="@+id/edT_Modelo"
@@ -58,7 +61,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Vendor" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_Vendor"
+                android:background="@drawable/shape_editext"/>
 
             <Spinner
                 android:id="@+id/spn_Categoria"
@@ -68,7 +72,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Modelo" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_Modelo"
+                android:entries="@array/categorias"/>
 
             <Spinner
                 android:id="@+id/spn_SubCategoria"
@@ -77,7 +82,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_Categoria" />
+                app:layout_constraintTop_toBottomOf="@+id/spn_Categoria"
+                android:entries="@array/subcategorias"/>
 
             <Spinner
                 android:id="@+id/spn_Tipo"
@@ -87,7 +93,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_SubCategoria" />
+                app:layout_constraintTop_toBottomOf="@+id/spn_SubCategoria"
+                android:entries="@array/tipos"/>
 
 
             <EditText
@@ -98,7 +105,8 @@
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_Tipo" />
+                app:layout_constraintTop_toBottomOf="@+id/spn_Tipo"
+                android:background="@drawable/shape_editext"/>
 
             <EditText
                 android:id="@+id/edT_Precio"
@@ -108,7 +116,8 @@
                 android:inputType="numberDecimal"
                 app:layout_constraintEnd_toEndOf="@+id/edT_DescProducto"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_DescProducto" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_DescProducto"
+                android:background="@drawable/shape_editext"/>
 
 
             <EditText
@@ -119,7 +128,8 @@
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="@+id/edT_Precio"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Precio" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_Precio"
+                android:background="@drawable/shape_editext"/>
 
 
             <EditText
@@ -130,7 +140,8 @@
                 android:inputType="textUri"
                 app:layout_constraintEnd_toEndOf="@+id/edT_FechaCompra"
                 app:layout_constraintStart_toEndOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_FechaCompra" />
+                app:layout_constraintTop_toBottomOf="@+id/edT_FechaCompra"
+                android:background="@drawable/shape_editext"/>
 
 
             <EditText
@@ -141,7 +152,8 @@
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guL_TextVs"
-                app:layout_constraintTop_toBottomOf="@+id/txtV_Notas" />
+                app:layout_constraintTop_toBottomOf="@+id/txtV_Notas"
+                android:background="@drawable/shape_editext"/>
 
             <ImageView
                 android:id="@+id/imgV_Logo"

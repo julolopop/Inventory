@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
+/**
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion Fondo inicial de la apk
+ */
 
 public class SplashActivity extends AppCompatActivity {
 

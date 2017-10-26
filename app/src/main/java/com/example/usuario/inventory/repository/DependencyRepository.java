@@ -5,7 +5,9 @@ import com.example.usuario.inventory.pojo.Dependency;
 import java.util.ArrayList;
 
 /**
- * Created by usuario on 26/10/17.
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion Creacion del array de Dependencias
  */
 
 public class DependencyRepository {

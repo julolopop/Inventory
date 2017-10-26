@@ -7,6 +7,11 @@ import android.widget.ArrayAdapter;
 import com.example.usuario.inventory.Adapter.DependencyAdapter;
 import com.example.usuario.inventory.pojo.Dependency;
 import com.example.usuario.inventory.repository.DependencyRepository;
+/**
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion Dependencias con el cual agregamos el adapter a la vista
+ */
 
 public class DependencyActivity extends ListActivity {
 

@@ -15,9 +15,11 @@ import com.example.usuario.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 /**
- * Created by usuario on 26/10/17.
- * Es la primera solucion no optimizada
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion DependencyAdapterA malo con el cual se controla la aparicion y desaparicion de las dependencias
  */
+
 
 public class DependencyAdapterA extends ArrayAdapter<Dependency>{
     public DependencyAdapterA(@NonNull Context context) {

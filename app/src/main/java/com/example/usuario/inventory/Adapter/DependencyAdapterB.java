@@ -13,10 +13,12 @@ import com.example.usuario.inventory.R;
 import com.example.usuario.inventory.pojo.Dependency;
 import com.example.usuario.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
-
 /**
- * Created by usuario on 26/10/17.
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion DependencyAdapterB medio con el cual se controla la aparicion y desaparicion de las dependencias
  */
+
 
 public class DependencyAdapterB extends ArrayAdapter<Dependency>{
     public DependencyAdapterB(@NonNull Context context) {

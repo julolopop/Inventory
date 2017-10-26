@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayout;
 import android.view.View;
 import android.widget.ImageView;
+/**
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion layout en el cual se mostrara las imagenes de cada secion
+ */
 
 public class DashBoardActivity extends AppCompatActivity {
 
@@ -23,11 +28,11 @@ public class DashBoardActivity extends AppCompatActivity {
 
 
         //definir un array int que contendrá el id de las imagenes
-        Imagenes[] imagenes = {new Imagenes(R.drawable.product, 0),
-                new Imagenes(R.drawable.seciones,1),
-                new Imagenes(R.drawable.preferencias,2),
-                new Imagenes(R.drawable.dependencia,3),
-                new Imagenes(R.drawable.inventory,4)};
+        Imagenes[] imagenes = {new Imagenes(R.drawable.product, 100),
+                new Imagenes(R.drawable.seciones,101),
+                new Imagenes(R.drawable.preferencias,102),
+                new Imagenes(R.drawable.dependencia,103),
+                new Imagenes(R.drawable.inventory,104)};
 
         //Definir in array de imageView
         //ImageView[] imageViews = new ImageView[imagenes.length];  // no se utiliza array de objetos se deve utilizar vector o coleciones
@@ -81,15 +86,15 @@ public class DashBoardActivity extends AppCompatActivity {
             Intent intent;
             //la id es el del array de imagenes 0 es la primera imagen del array y asi ...
             switch (view.getId()) {
-                case 0:
+                case 100:
                     intent = new Intent(DashBoardActivity.this, ProductosActivity.class);
                     startActivity(intent);
                     break;
-                case 3:
+                case 103:
                     intent = new Intent(DashBoardActivity.this, DependencyActivity.class);
                     startActivity(intent);
                     break;
-                case 4:
+                case 104:
                     intent = new Intent(DashBoardActivity.this, InventoryActivity.class);
                     startActivity(intent);
                     break;

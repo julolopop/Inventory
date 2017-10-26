@@ -15,9 +15,11 @@ import com.example.usuario.inventory.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 /**
- * Created by usuario on 26/10/17.
- * opcion buena del adapter
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion DependencyAdapterB Buena con el cual se controla la aparicion y desaparicion de las dependencias
  */
+
 
 public class DependencyAdapter extends ArrayAdapter<Dependency>{
     public DependencyAdapter(@NonNull Context context) {

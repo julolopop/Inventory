@@ -3,7 +3,9 @@ package com.example.usuario.inventory;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by usuario on 23/10/17.
+ * @Aurtor Juan Manuel Diaz Ortiz
+ * @Version 1.0
+ * @Descripcion Clase para grardar las imagenes que seran espuestas en el DashBoard
  */
 
 public class Imagenes {
