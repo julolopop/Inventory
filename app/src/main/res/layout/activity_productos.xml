@@ -67,47 +67,49 @@
 
             <Spinner
                 android:id="@+id/spn_Categoria"
-                android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/edT_Nombre"
+                android:entries="@array/categorias"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/edT_Modelo"
-                android:entries="@array/categorias"/>
+                app:layout_constraintTop_toBottomOf="@+id/edT_Modelo" />
 
             <Spinner
                 android:id="@+id/spn_SubCategoria"
-                android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                android:entries="@array/subcategorias"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_Categoria"
-                android:entries="@array/subcategorias"/>
+                app:layout_constraintTop_toBottomOf="@+id/spn_Categoria" />
 
             <Spinner
                 android:id="@+id/spn_Tipo"
-                android:layout_width="110dp"
-                android:layout_height="24dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                android:entries="@array/tipos"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_SubCategoria"
-                android:entries="@array/tipos"/>
+                app:layout_constraintTop_toBottomOf="@+id/spn_SubCategoria" />
 
 
             <EditText
                 android:id="@+id/edT_DescProducto"
                 android:layout_width="0dp"
                 android:layout_height="122dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/shape_editext"
                 android:inputType="textMultiLine"
-                app:layout_constraintEnd_toEndOf="@+id/edT_Modelo"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/barrier"
-                app:layout_constraintTop_toBottomOf="@+id/spn_Tipo"
-                android:background="@drawable/shape_editext"/>
+                app:layout_constraintTop_toBottomOf="@+id/spn_Tipo" />
 
             <EditText
                 android:id="@+id/edT_Precio"
