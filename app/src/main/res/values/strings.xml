@@ -26,5 +26,7 @@
     <string name="txtV_URL">URL</string>
     <string name="txtV_Notas">Notas</string>
     <string name="edT_Description">dada</string>
+    <string name="default_text">Defecto</string>
+    <string name="menu_save">Titulo</string>
 
 </resources>

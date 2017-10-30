@@ -1,4 +1,4 @@
-package com.example.usuario.inventory;
+package com.example.usuario.inventory.pojo;
 
 import android.graphics.drawable.Drawable;
 

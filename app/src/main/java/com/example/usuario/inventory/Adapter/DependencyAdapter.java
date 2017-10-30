@@ -22,6 +22,7 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 
 public class DependencyAdapter extends ArrayAdapter<Dependency>{
+
     public DependencyAdapter(@NonNull Context context) {
         super(context, R.layout.item_dependecy, DependencyRepository.getInstance().getDependencies());
     }

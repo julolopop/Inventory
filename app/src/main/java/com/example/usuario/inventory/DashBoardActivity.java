@@ -1,12 +1,14 @@
 package com.example.usuario.inventory;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayout;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.usuario.inventory.pojo.Imagenes;
+
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
  * @Version 1.0
@@ -88,6 +90,10 @@ public class DashBoardActivity extends AppCompatActivity {
             switch (view.getId()) {
                 case 100:
                     intent = new Intent(DashBoardActivity.this, ProductosActivity.class);
+                    startActivity(intent);
+                    break;
+                case 102:
+                    intent = new Intent(DashBoardActivity.this, SectorActivity.class);
                     startActivity(intent);
                     break;
                 case 103:
