@@ -32,11 +32,13 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
     public SectorAdapter(){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = new ArrayList<>();
+        onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
     }
 
     public SectorAdapter(ArrayList<Sector> sectorsModified){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = sectorsModified;
+        onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
     }
 
     @Override
@@ -53,9 +55,12 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
     public void onBindViewHolder(SectorHolder holder, int position) {
         holder.swt_enable.setChecked(sectors.get(position).isEnable());
         holder.swt_enable.setOnCheckedChangeListener(onSwithCheckedChangeListener);
+        holder.swt_enable.setId(sectors.get(position).get_ID());
         holder.txv_Name.setText(sectors.get(position).getName());
         if(sectors.get(position).isDefaultState())
             holder.txv_SectoDefault.setText(R.string.default_text);
+
+
     }
 
     /**
@@ -100,6 +105,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             int sectorID = buttonView.getId();
+            SectorRepository.getInstance().modifySector(sectorID, isChecked);
 
         }
     }
