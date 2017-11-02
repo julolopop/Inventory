@@ -23,6 +23,6 @@
     <string name="txtV_URL">URL</string>
     <string name="txtV_Notas">Notes</string>
     <string name="default_text">Default</string>
-    <string name="menu_save">Titulo</string>
+    <string name="action_save">Titulo</string>
 
 </resources>

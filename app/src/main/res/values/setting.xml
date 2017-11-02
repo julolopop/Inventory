@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_general">Preferencias generales</string>
+    <string name="pref_title_showimage">Mostrar Imagen</string>
+    <string name="pref_description_showimage">Descripción de mostrar imagen</string>
+    <string name="pref_summary_numcolumn">Mostrar lista de los listados generales</string>
+    <string name="pref_title_numcolumn">Lista de colimnos</string>
+    <string name="pref_title_aboutus">titulo aboutus</string>
+
+    <string-array name="pref_entries_numcolumn">
+        <item>Columna1</item>
+        <item>Columna2</item>
+        <item>Columna3</item>
+        <item>Columna4</item>
+    </string-array>
+    <string-array name="pref_entryvalues_numcolumn">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+</resources>

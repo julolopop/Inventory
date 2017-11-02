@@ -67,6 +67,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
         return sectors.size();
     }
 
+
     public static class SectorHolder extends RecyclerView.ViewHolder{
         private Switch swt_enable;
         private TextView txv_Name,txv_SectoDefault;
@@ -87,6 +88,8 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
      * @return ArrayList
      */
 
+
+
     public ArrayList<Sector> getSectorsModified()
     {
         return  sectorsModified;
@@ -96,6 +99,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
     class OnSwithCheckedChangeListener implements CompoundButton.OnCheckedChangeListener{
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            int sectorID = buttonView.getId();
 
         }
     }

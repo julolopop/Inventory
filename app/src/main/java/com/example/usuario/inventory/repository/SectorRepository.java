@@ -69,4 +69,5 @@ public class SectorRepository {
     public ArrayList<Sector> getSectors() {
         return this.sectors;
     }
+
 }

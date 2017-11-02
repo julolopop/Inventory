@@ -25,8 +25,9 @@
     <string name="txtV_FechaCompra">Fecha de compra</string>
     <string name="txtV_URL">URL</string>
     <string name="txtV_Notas">Notas</string>
-    <string name="edT_Description">dada</string>
     <string name="default_text">Defecto</string>
-    <string name="menu_save">Titulo</string>
+    <string name="action_save">Titulo</string>
+    <string name="action_general_setting">General</string>
+    <string name="action_account_setting">Account</string>
 
 </resources>

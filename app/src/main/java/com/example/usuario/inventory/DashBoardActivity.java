@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayout;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -31,10 +34,10 @@ public class DashBoardActivity extends AppCompatActivity {
 
         //definir un array int que contendrá el id de las imagenes
         Imagenes[] imagenes = {new Imagenes(R.drawable.product, 100),
-                new Imagenes(R.drawable.seciones,101),
-                new Imagenes(R.drawable.preferencias,102),
-                new Imagenes(R.drawable.dependencia,103),
-                new Imagenes(R.drawable.inventory,104)};
+                new Imagenes(R.drawable.seciones, 101),
+                new Imagenes(R.drawable.preferencias, 102),
+                new Imagenes(R.drawable.dependencia, 103),
+                new Imagenes(R.drawable.inventory, 104)};
 
         //Definir in array de imageView
         //ImageView[] imageViews = new ImageView[imagenes.length];  // no se utiliza array de objetos se deve utilizar vector o coleciones
@@ -109,4 +112,27 @@ public class DashBoardActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_activity_dashboard,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.action_account_setting:
+                startActivity(new Intent(DashBoardActivity.this,AccountSettingActivity.class));
+                break;
+
+            case R.id.action_general_setting:
+
+                startActivity(new Intent(DashBoardActivity.this,GeneralSettingActivity.class));
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
