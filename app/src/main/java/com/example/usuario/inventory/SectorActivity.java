@@ -22,20 +22,25 @@ public class SectorActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private SectorAdapter sectorAdapter;
-    private int spanCount;
+
+    private android.support.v7.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        spanCount = 2;
+        int spanCount = 2;
 
         setContentView(R.layout.activity_sector);
         recyclerView = (RecyclerView) findViewById(R.id.rcv_Sectores);
+        this.toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_dependency);
         //Para que pinte los elementos
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, spanCount));
         //inicializo el adapter y lo asocio
+
+
+        setSupportActionBar(this.toolbar);
 
         if (savedInstanceState != null)
             sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));

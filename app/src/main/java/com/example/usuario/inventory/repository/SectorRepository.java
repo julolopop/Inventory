@@ -47,6 +47,12 @@ public class SectorRepository {
                 5, true, true));
         addSectors(new Sector(6, "Armario6", "ARM6", "Zona para guardar cosas",
                 6, true, true));
+        addSectors(new Sector(7, "Armario7", "ARM7", "Zona para guardar cosas",
+                6, true, true));
+        addSectors(new Sector(8, "Armario8", "ARM8", "Zona para guardar cosas",
+                6, true, true));
+        addSectors(new Sector(9, "Armario9", "ARM9", "Zona para guardar cosas",
+                6, true, true));
 
     }
 
