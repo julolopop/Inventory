@@ -71,5 +71,20 @@ public class UserRepository {
         this.users.add(user);
     }
 
+    /**
+     *
+     * @return isDuplicate
+     */
+    public boolean IsUserExits(User user){
+        boolean isDuplicate = true;
+
+
+        return isDuplicate;
+    }
+
+    public ArrayList<User> GetUsers(){
+
+        return new ArrayList<User>();
+    }
 
 }

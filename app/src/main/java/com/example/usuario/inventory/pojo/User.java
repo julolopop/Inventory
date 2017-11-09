@@ -79,4 +79,22 @@ public class User {
     public void setManagement(boolean management) {
         this.management = management;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user1 = (User) o;
+
+        if (user != null ? !user.equals(user1.user) : user1.user != null) return false;
+        return mail != null ? mail.equals(user1.mail) : user1.mail == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = user != null ? user.hashCode() : 0;
+        result = 31 * result + (mail != null ? mail.hashCode() : 0);
+        return result;
+    }
 }
