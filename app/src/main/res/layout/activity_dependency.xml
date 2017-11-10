@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.usuario.inventory.DependencyActivity">
+    tools:context="com.example.usuario.inventoryMVP.DependencyActivity">
 
 
     <android.support.v7.widget.Toolbar

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.usuario.inventory">
+    package="com.example.usuario.inventoryMVP">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.usuario.inventoryMVP.SplashActivity"
             android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,21 +18,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.example.usuario.inventoryMVP.ui.login.LoginActivity"
             android:theme="@style/LoginTheme" />
-        <activity android:name=".InventoryActivity" />
-        <activity android:name=".DashBoardActivity" />
-        <activity android:name=".ProductosActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.InventoryActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.DashBoardActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ProductosActivity" />
         <activity
-            android:name=".DependencyActivity"
+            android:name="com.example.usuario.inventoryMVP.DependencyActivity"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name=".SectorActivity"
+            android:name="com.example.usuario.inventoryMVP.SectorActivity"
             android:theme="@style/AppTheme1" />
-        <activity android:name=".GeneralSettingActivity" />
-        <activity android:name=".AccountSettingActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".AddDependencyActivity"></activity>
+        <activity android:name="com.example.usuario.inventoryMVP.GeneralSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.AccountSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.login.about.AboutActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.AddDependencyActivity"></activity>
     </application>
 
 </manifest>
