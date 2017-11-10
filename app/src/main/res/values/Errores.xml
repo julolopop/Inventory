@@ -1,0 +1,7 @@
+<resources>
+    <string name="ErrorUser">user</string>
+    <string name="ErrorPassword">ErrorPassword</string>
+    <string name="ErrorpasswordLength">ErrorpasswordLength</string>
+
+
+</resources>
