@@ -13,5 +13,6 @@ public interface LoginInteractor {
         void OnPasswordEmpyteError();
 
         void OnPasswordError();
+        void OnSuccess();
     }
 }

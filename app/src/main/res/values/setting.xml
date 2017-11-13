@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_category_general">Preferencias generales</string>
-    <string name="pref_title_showimage">Mostrar Imagen</string>
-    <string name="pref_description_showimage">Descripción de mostrar imagen</string>
-    <string name="pref_summary_numcolumn">Mostrar lista de los listados generales</string>
-    <string name="pref_title_numcolumn">Lista de colimnos</string>
-    <string name="pref_title_aboutus">titulo aboutus</string>
+    <string name="pref_category_general" translatable="false">Preferencias generales</string>
+    <string name="pref_title_showimage" translatable="false">Mostrar Imagen</string>
+    <string name="pref_description_showimage" translatable="false">Descripción de mostrar imagen</string>
+    <string name="pref_summary_numcolumn" translatable="false">Mostrar lista de los listados generales</string>
+    <string name="pref_title_numcolumn" translatable="false">Lista de colimnos</string>
+    <string name="pref_title_aboutus" translatable="false">titulo aboutus</string>
 
     <string-array name="pref_entries_numcolumn">
         <item>Columna1</item>

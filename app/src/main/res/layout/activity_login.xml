@@ -7,7 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.usuario.inventoryMVP.ui.login.LoginActivity"
     android:background="@color/colorPrimary"
-    android:padding="@dimen/lly_activity_login">
+    android:padding="@dimen/lly_activity_login"
+    android:id="@android:id/content">
 
     <TextView
         android:id="@+id/txvSignIn"

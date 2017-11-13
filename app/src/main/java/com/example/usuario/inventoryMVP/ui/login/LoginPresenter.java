@@ -7,4 +7,5 @@ package com.example.usuario.inventoryMVP.ui.login;
 public interface LoginPresenter {
 
     void ValidateCredentails(String user,String password);
+    void onDestroy();
 }

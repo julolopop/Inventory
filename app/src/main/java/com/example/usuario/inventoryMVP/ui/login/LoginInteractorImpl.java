@@ -12,12 +12,13 @@ public class LoginInteractorImpl implements LoginInteractor {
     @Override
     public void ValidateCredentails(String user, String password, OnLoginFinishedListener listener) {
         //si el password es vacio
-        if (password == "") {
+        if (password.isEmpty())
             listener.OnPasswordEmpyteError();
-        }else if(user == ""){
-            listener.OnUserEmpyteError();
-        }else{
-
-        }
+        else if (user.isEmpty())
+            listener.OnPasswordError();
+        else if (password.isEmpty())
+            listener.OnPasswordError();
+        else
+            listener.OnSuccess();
     }
 }

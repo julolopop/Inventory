@@ -36,9 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         this.btnSingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               loginPresenter.ValidateCredentails("Juanma","ju");
-                //Intent singIn = new Intent(LoginActivity.this, DashBoardActivity.class);
-                //startActivity(singIn);
+                loginPresenter.ValidateCredentails("Juanma","ju");
             }
         });
 

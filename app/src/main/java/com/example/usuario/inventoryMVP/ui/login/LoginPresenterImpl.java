@@ -6,7 +6,7 @@ import android.widget.ListView;
  * Created by usuario on 10/11/17.
  */
 
-public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLoginFinishedListener{
+public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener {
     private LoginInteractorImpl loginInteractor;
     private LoginViewImpl loginView;
 
@@ -17,7 +17,16 @@ public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLogi
 
     @Override
     public void ValidateCredentails(String user, String password) {
-        loginInteractor.ValidateCredentails(user,password,this);
+        loginInteractor.ValidateCredentails(user, password, this);
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    public void OnSuccess(){
+        loginView.NavigateToHome();
     }
 
     @Override
@@ -27,11 +36,13 @@ public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLogi
 
     @Override
     public void OnPasswordEmpyteError() {
-
+        loginView.SetPasswordEmpyteError();
     }
 
     @Override
     public void OnPasswordError() {
-
+        loginView.SetPasswordError();
     }
+
+
 }

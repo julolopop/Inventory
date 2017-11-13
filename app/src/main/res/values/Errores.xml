@@ -1,7 +1,7 @@
 <resources>
-    <string name="ErrorUser">user</string>
-    <string name="ErrorPassword">ErrorPassword</string>
-    <string name="ErrorpasswordLength">ErrorpasswordLength</string>
+    <string name="ErrorUser" translatable="false">user</string>
+    <string name="ErrorPassword" translatable="false">ErrorPassword</string>
+    <string name="ErrorpasswordLength" translatable="false">ErrorpasswordLength</string>
 
 
 </resources>

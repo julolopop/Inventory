@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryMVP.ui.login.about;
+package com.example.usuario.inventoryMVP.ui.about;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

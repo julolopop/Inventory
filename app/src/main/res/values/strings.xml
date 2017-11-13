@@ -27,7 +27,7 @@
     <string name="txtV_Notas">Notas</string>
     <string name="default_text">Defecto</string>
     <string name="action_save">Titulo</string>
-    <string name="action_general_setting">General</string>
-    <string name="action_account_setting">Account</string>
+    <string name="action_general_setting" translatable="false">General</string>
+    <string name="action_account_setting" translatable="false">Account</string>
 
 </resources>
