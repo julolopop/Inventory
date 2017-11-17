@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Sector;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.example.usuario.inventoryMVP.Adapter.SectorAdapter;
+import com.example.usuario.inventoryMVP.R;
 import com.example.usuario.inventoryMVP.pojo.Sector;
 
 /**

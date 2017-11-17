@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.usuario.inventoryMVP.SplashActivity"
+            android:name="com.example.usuario.inventoryMVP.ui.Splash.SplashActivity"
             android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,21 +18,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.usuario.inventoryMVP.ui.login.LoginActivity"
+            android:name="com.example.usuario.inventoryMVP.ui.login.LoginViewImpl"
             android:theme="@style/LoginTheme" />
-        <activity android:name="com.example.usuario.inventoryMVP.InventoryActivity" />
-        <activity android:name="com.example.usuario.inventoryMVP.DashBoardActivity" />
-        <activity android:name="com.example.usuario.inventoryMVP.ProductosActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.inventory.InventoryActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.Dashboard.DashBoardActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.Product.ProductosActivity" />
         <activity
-            android:name="com.example.usuario.inventoryMVP.DependencyActivity"
+            android:name="com.example.usuario.inventoryMVP.ui.Dependency.DependencyActivity"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name="com.example.usuario.inventoryMVP.SectorActivity"
+            android:name="com.example.usuario.inventoryMVP.ui.Sector.SectorActivity"
             android:theme="@style/AppTheme1" />
-        <activity android:name="com.example.usuario.inventoryMVP.GeneralSettingActivity" />
-        <activity android:name="com.example.usuario.inventoryMVP.AccountSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.Setting.GeneralSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryMVP.ui.Setting.AccountSettingActivity" />
         <activity android:name="com.example.usuario.inventoryMVP.ui.login.about.AboutActivity" />
-        <activity android:name="com.example.usuario.inventoryMVP.AddDependencyActivity"></activity>
+        <activity android:name="com.example.usuario.inventoryMVP.ui.Dependency.AddDependencyActivity"></activity>
         <activity android:name=".ui.base.BaseActivity" />
     </application>
 

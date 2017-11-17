@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.usuario.inventoryMVP.DependencyActivity"
+    tools:context="com.example.usuario.inventoryMVP.ui.Dependency.DependencyActivity"
     android:id="@android:id/content">
 
 

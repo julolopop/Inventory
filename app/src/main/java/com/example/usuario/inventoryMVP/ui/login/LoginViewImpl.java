@@ -1,15 +1,12 @@
 package com.example.usuario.inventoryMVP.ui.login;
 
 import android.content.Intent;
-import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.example.usuario.inventoryMVP.DashBoardActivity;
+import com.example.usuario.inventoryMVP.ui.Dashboard.DashBoardActivity;
 import com.example.usuario.inventoryMVP.R;
 import com.example.usuario.inventoryMVP.ui.base.BaseActivity;
 
@@ -19,7 +16,7 @@ import com.example.usuario.inventoryMVP.ui.base.BaseActivity;
  * @Descripcion Inicio del proyecto menu
  */
 
-public class LoginActivity extends BaseActivity implements LoginView, View.OnClickListener{
+public class LoginViewImpl extends BaseActivity implements LoginView, View.OnClickListener{
 
 
 
@@ -54,7 +51,7 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
 
     @Override
     public void NavigateToHome() {
-        Intent singIn = new Intent(LoginActivity.this,DashBoardActivity.class);
+        Intent singIn = new Intent(LoginViewImpl.this,DashBoardActivity.class);
         startActivity(singIn);
     }
 

@@ -1,7 +1,9 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Setting;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import com.example.usuario.inventoryMVP.R;
 
 /**
  * Created by usuario on 2/11/17.

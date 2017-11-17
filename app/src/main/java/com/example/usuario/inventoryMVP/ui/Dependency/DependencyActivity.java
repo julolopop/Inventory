@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Dependency;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.usuario.inventoryMVP.Adapter.DependencyAdapter;
+import com.example.usuario.inventoryMVP.R;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz

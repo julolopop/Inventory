@@ -1,7 +1,9 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Dependency;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.usuario.inventoryMVP.R;
 
 public class AddDependencyActivity extends AppCompatActivity {
 

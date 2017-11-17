@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.usuario.inventoryMVP.ui.Setting.AccountSettingActivity;
+import com.example.usuario.inventoryMVP.ui.Setting.GeneralSettingActivity;
+import com.example.usuario.inventoryMVP.R;
 import com.example.usuario.inventoryMVP.pojo.Imagenes;
+import com.example.usuario.inventoryMVP.ui.Dependency.DependencyActivity;
+import com.example.usuario.inventoryMVP.ui.Product.ProductosActivity;
+import com.example.usuario.inventoryMVP.ui.Sector.SectorActivity;
+import com.example.usuario.inventoryMVP.ui.inventory.InventoryActivity;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz

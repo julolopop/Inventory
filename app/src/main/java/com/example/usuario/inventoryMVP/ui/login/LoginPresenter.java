@@ -8,4 +8,5 @@ public interface LoginPresenter {
 
     void ValidateCredentails(String user,String password);
     void onDestroy();
+
 }

@@ -1,10 +1,11 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.usuario.inventoryMVP.ui.login.LoginActivity;
+import com.example.usuario.inventoryMVP.R;
+import com.example.usuario.inventoryMVP.ui.login.LoginViewImpl;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
                 // Start the next activity
                 Intent mainIntent = new Intent().setClass(
-                        SplashActivity.this, LoginActivity.class);
+                        SplashActivity.this, LoginViewImpl.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this

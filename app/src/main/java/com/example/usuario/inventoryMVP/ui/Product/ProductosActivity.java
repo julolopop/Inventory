@@ -1,7 +1,10 @@
-package com.example.usuario.inventoryMVP;
+package com.example.usuario.inventoryMVP.ui.Product;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.usuario.inventoryMVP.R;
+
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
  * @Version 1.0
