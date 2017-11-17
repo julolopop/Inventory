@@ -3,6 +3,7 @@ package com.example.usuario.inventoryMVP.data.repository;
 import com.example.usuario.inventoryMVP.pojo.Dependency;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 public class DependencyRepository {
     //declaración
     ArrayList<Dependency> dependencies;
+
     private static DependencyRepository dependencyRepository;
 
     //Inicialización
@@ -59,6 +61,7 @@ public class DependencyRepository {
     }
 
     public ArrayList<Dependency> getDependencies() {
-        return this.dependencies;
+        Collections.sort(this.dependencies);
+        return  this.dependencies;
     }
 }

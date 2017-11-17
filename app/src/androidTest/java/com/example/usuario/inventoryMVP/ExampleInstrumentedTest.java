@@ -70,7 +70,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void IsPasswordWith6char() throws  Exception{
         onView(withId(R.id.edtUser)).perform(typeText("Juanma"),closeSoftKeyboard());
-        onView(withId(R.id.edtPassword)).perform(typeText("Jua"),closeSoftKeyboard());
+        onView(withId(R.id.edtPassword)).perform(typeText("123"),closeSoftKeyboard());
         onView(withId(R.id.btnSignIn)).perform(click());
 
         CheckSnackBarDisplayByMessage(R.string.ErrorpasswordLength);

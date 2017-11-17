@@ -21,8 +21,7 @@ public final class CommonUtils {
     public static boolean isPasswordvalid(String password){
         Pattern pattern;
         Matcher matcher;
-        final String PASSWORD_PATTERN ="^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])(?=\\w*[0-9])\\S{6,}";
-
+        final String PASSWORD_PATTERN = ".*";//([a-z]+[A-Z]+[0-9]+){6,}";
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher=pattern.matcher(password);
 

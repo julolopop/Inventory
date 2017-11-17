@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.usuario.inventoryMVP.DashBoardActivity;
 import com.example.usuario.inventoryMVP.R;
+import com.example.usuario.inventoryMVP.ui.base.BaseActivity;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -17,28 +19,64 @@ import com.example.usuario.inventoryMVP.R;
  * @Descripcion Inicio del proyecto menu
  */
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity implements LoginView, View.OnClickListener{
 
+
+
+    private EditText edtUser;
+    private EditText edtPassword;
     private Button btnSingIn;
-    private TextView txvSingUp;
+
     private LoginPresenterImpl loginPresenter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        this.btnSingIn = ((Button) findViewById(R.id.btnSignIn));
-        this.txvSingUp = ((TextView) findViewById(R.id.txvSignup));
-
-        //setPaintFlags sirve para poder ponerle un UNDERLINE al testo
-        this.txvSingUp.setPaintFlags(this.txvSingUp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        //boten para iniciar el DashBoardActivity
-        this.btnSingIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginPresenter.ValidateCredentails("Juanma","ju");
-            }
-        });
-
+        edtUser = (EditText) findViewById(R.id.edtUser);
+        edtPassword = (EditText) findViewById(R.id.edtPassword);
+        btnSingIn = (Button) findViewById(R.id.btnSignIn);
+        btnSingIn.setOnClickListener(this);
+        loginPresenter = new LoginPresenterImpl(this);
     }
+
+
+    @Override
+    public void onClick(View v) {
+        if(v == btnSingIn)
+        loginPresenter.ValidateCredentails(edtUser.getText().toString(), edtPassword.getText().toString());
+
+        //Intent intent = new Intent(this, DashBoardActivity.class);
+        //startActivity(intent);
+    }
+
+    @Override
+    public void NavigateToHome() {
+        Intent singIn = new Intent(LoginActivity.this,DashBoardActivity.class);
+        startActivity(singIn);
+    }
+
+    @Override
+    public void SetUserEmpyteError() {
+        onError(R.string.ErrorUser);
+    }
+
+    @Override
+    public void SetPasswordEmpyteError() {
+        onError(R.string.ErrorPassword);
+    }
+
+    @Override
+    public void SetPasswordError() {
+        onError(R.string.ErrorpasswordLength);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        loginPresenter.onDestroy();
+    }
+
 }

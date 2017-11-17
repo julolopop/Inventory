@@ -1,5 +1,9 @@
 package com.example.usuario.inventoryMVP.pojo;
 
+import android.support.annotation.NonNull;
+
+import java.util.Comparator;
+
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
  * @Version 1.0
@@ -7,7 +11,7 @@ package com.example.usuario.inventoryMVP.pojo;
  */
 
 
-public class Dependency {
+public class Dependency implements Comparable<Dependency>{
     private int _ID;
     private  String name;
     private  String shortname;
@@ -60,5 +64,18 @@ public class Dependency {
                 ", shortname='" + shortname + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(@NonNull Dependency dependency) {
+        return name.compareTo(dependency.name);
+    }
+
+    public static class OrderByShortName implements Comparator<Dependency>{
+        @Override
+        public int compare(Dependency dependency1, Dependency dependency2) {
+            return dependency1.getShortname().compareTo(dependency2.getShortname());
+        }
     }
 }

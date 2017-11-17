@@ -8,11 +8,11 @@ import android.widget.ListView;
 
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener {
     private LoginInteractorImpl loginInteractor;
-    private LoginViewImpl loginView;
+    private LoginActivity loginView;
 
-    public LoginPresenterImpl(LoginViewImpl loginView, LoginInteractorImpl loginInteractor) {
+    public LoginPresenterImpl(LoginActivity loginView) {
         this.loginView = loginView;
-        this.loginInteractor = loginInteractor;
+        loginInteractor = new LoginInteractorImpl();
     }
 
     @Override
@@ -20,9 +20,11 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
         loginInteractor.ValidateCredentails(user, password, this);
     }
 
+
     @Override
     public void onDestroy() {
-
+        loginView = null;
+        loginInteractor = null;
     }
 
     public void OnSuccess(){

@@ -1,5 +1,8 @@
 package com.example.usuario.inventoryMVP.ui.login;
 
+import com.example.usuario.inventoryMVP.data.repository.UserRepository;
+import com.example.usuario.inventoryMVP.utils.CommonUtils;
+
 import net.bytebuddy.implementation.bind.annotation.Empty;
 
 /**
@@ -14,11 +17,14 @@ public class LoginInteractorImpl implements LoginInteractor {
         //si el password es vacio
         if (password.isEmpty())
             listener.OnPasswordEmpyteError();
-        else if (user.isEmpty())
-            listener.OnPasswordError();
-        else if (password.isEmpty())
+        else
+            if (user.isEmpty())
+            listener.OnUserEmpyteError();
+        else
+            if (!CommonUtils.isPasswordvalid(password))
             listener.OnPasswordError();
         else
+            if (UserRepository.getInstance().validateCredentials(user, password))
             listener.OnSuccess();
     }
 }

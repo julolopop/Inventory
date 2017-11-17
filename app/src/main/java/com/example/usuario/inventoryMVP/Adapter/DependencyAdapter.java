@@ -14,6 +14,9 @@ import com.example.usuario.inventoryMVP.R;
 import com.example.usuario.inventoryMVP.data.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
  * @Version 1.0
@@ -22,9 +25,13 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 
 public class DependencyAdapter extends ArrayAdapter<Dependency>{
-
+    /**
+     * se crea una copia
+     * @param context
+     */
     public DependencyAdapter(@NonNull Context context) {
         super(context, R.layout.item_dependecy, DependencyRepository.getInstance().getDependencies());
+        sort(new Dependency.OrderByShortName());
     }
 
     @NonNull

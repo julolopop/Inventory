@@ -71,19 +71,35 @@ public class UserRepository {
     }
 
     /**
-     *
      * @return isDuplicate
      */
-    public boolean IsUserExits(User user){
+    public boolean IsUserExits(User user) {
         boolean isDuplicate = true;
 
 
         return isDuplicate;
     }
 
-    public ArrayList<User> GetUsers(){
+    public ArrayList<User> GetUsers() {
 
         return new ArrayList<User>();
+    }
+
+    public boolean isUserExits(User user) {
+
+        return true;
+    }
+
+
+    public boolean validateCredentials(String user, String password) {
+        boolean result = false;
+
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUser().equals(user) && users.get(i).getPassword().equals(password))
+                result = true;
+        }
+
+        return result;
     }
 
 }
