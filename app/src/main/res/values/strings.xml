@@ -30,4 +30,7 @@
     <string name="action_general_setting" translatable="false">General</string>
     <string name="action_account_setting" translatable="false">Account</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

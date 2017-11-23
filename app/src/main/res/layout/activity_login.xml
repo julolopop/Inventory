@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.usuario.inventoryMVP.ui.login.LoginViewImpl"
+    tools:context="com.example.usuario.inventoryfragment.ui.login.LoginViewImpl"
     android:background="@color/colorPrimary"
     android:padding="@dimen/lly_activity_login"
     android:id="@android:id/content">
