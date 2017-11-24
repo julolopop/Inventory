@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.ui.Dependency.Contract.AddDependencyContract;
-import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Interface.AddDependencyFragment;
 import com.example.usuario.inventoryfragment.ui.Dependency.Interface.ListDependencyFragment;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
@@ -47,7 +45,7 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         //2. se crea el presentador y se le pasa
         listDepencencyPresenter = new ListDepencencyPresenter(listDependency);
 
-        listDependency.setPresenter((ListDependencyContract.Presenter) listDepencencyPresenter);
+        listDependency.setPresenter(listDepencencyPresenter);
     }
 
 
@@ -57,15 +55,15 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         addeditDependency = (AddDependencyFragmentImpl)fragmentManager.findFragmentByTag(AddDependencyFragment.TAG);
-        if(listDependency == null){
-            listDependency = (ListDependencyFragmentImpl) ListDependencyFragmentImpl.newInstance(null);
-            fragmentTransaction.add( android.R.id.content,addeditDependency, ListDependencyFragmentImpl.TAG);
+        if(addeditDependency == null){
+            addeditDependency = (AddDependencyFragmentImpl) AddDependencyFragmentImpl.newInstance(null);
+            fragmentTransaction.replace( android.R.id.content,addeditDependency, ListDependencyFragmentImpl.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
         }
         addDepencencyPresenter = new AddDepencencyPresenter(addeditDependency);//-
-        addeditDependency.setPresenter((AddDependencyContract.Presenter) addDepencencyPresenter);
+        addeditDependency.setPresenter(addDepencencyPresenter);
     }
 }
 

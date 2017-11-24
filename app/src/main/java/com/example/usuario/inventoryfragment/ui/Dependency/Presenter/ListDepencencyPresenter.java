@@ -8,7 +8,7 @@ import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependen
  * Created by usuario on 23/11/17.
  */
 
-public class ListDepencencyPresenter {
+public class ListDepencencyPresenter implements ListDependencyContract.Presenter {
 
     ListDependencyContract.View view;
 
