@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.AddDependencyFragment;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.ListDependencyFragment;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BaseActivity;
@@ -18,7 +16,7 @@ import com.example.usuario.inventoryfragment.ui.base.BaseActivity;
  * @Descripcion Dependencias con el cual agregamos el adapter a la vista
  */
 
-public class DependencyActivity extends BaseActivity  implements ListDependencyFragmentImpl.ListDependencyListener{
+public class DependencyActivity extends BaseActivity  implements ListDependencyFragmentImpl.ListDependencyListener,AddDependencyFragmentImpl.AddDependencyListener{
 
     private ListDependencyFragmentImpl listDependency;
     private AddDependencyFragmentImpl addeditDependency;
@@ -35,7 +33,7 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        listDependency = (ListDependencyFragmentImpl) fragmentManager.findFragmentByTag(ListDependencyFragment.TAG);
+        listDependency = (ListDependencyFragmentImpl) fragmentManager.findFragmentByTag(ListDependencyFragmentImpl.TAG);
         if(listDependency == null){
             listDependency = (ListDependencyFragmentImpl) ListDependencyFragmentImpl.newInstance(null);
             fragmentTransaction.add( android.R.id.content,listDependency, ListDependencyFragmentImpl.TAG);
@@ -54,7 +52,7 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        addeditDependency = (AddDependencyFragmentImpl)fragmentManager.findFragmentByTag(AddDependencyFragment.TAG);
+        addeditDependency = (AddDependencyFragmentImpl)fragmentManager.findFragmentByTag(AddDependencyFragmentImpl.TAG);
         if(addeditDependency == null){
             addeditDependency = (AddDependencyFragmentImpl) AddDependencyFragmentImpl.newInstance(null);
             fragmentTransaction.replace( android.R.id.content,addeditDependency, ListDependencyFragmentImpl.TAG);
@@ -64,6 +62,22 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         }
         addDepencencyPresenter = new AddDepencencyPresenter(addeditDependency);//-
         addeditDependency.setPresenter(addDepencencyPresenter);
+    }
+
+
+    public void listNewDependency(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if(listDependency == null){
+            listDependency = (ListDependencyFragmentImpl) fragmentManager.findFragmentByTag(ListDependencyFragmentImpl.TAG);
+        }
+        fragmentTransaction.replace( android.R.id.content,listDependency, ListDependencyFragmentImpl.TAG);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        //2. se crea el presentador y se le pasa
+        listDepencencyPresenter = new ListDepencencyPresenter(listDependency);
+        listDependency.setPresenter(listDepencencyPresenter);
     }
 }
 

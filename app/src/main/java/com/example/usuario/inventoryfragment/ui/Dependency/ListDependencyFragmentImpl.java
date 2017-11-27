@@ -12,25 +12,45 @@ import android.view.ViewGroup;
 
 import com.example.usuario.inventoryfragment.Adapter.DependencyAdapter;
 import com.example.usuario.inventoryfragment.R;
+import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.ListDependencyFragment;
+import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
+import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
 import com.example.usuario.inventoryfragment.ui.base.BaseView;
 
 import net.bytebuddy.implementation.bytecode.Throw;
 
+import java.util.List;
+
 /**
  * Created by usuario on 23/11/17.
  */
 
-public class ListDependencyFragmentImpl extends ListFragment implements ListDependencyFragment,ListDependencyContract.View {
+public class ListDependencyFragmentImpl extends ListFragment implements ListDependencyContract.View {
     public static final   String TAG = "ListDependencyFragmentImpl";
 
-    private BasePresenter presenter;
+    private ListDepencencyPresenter presenter;
     private ListDependencyListener listener;
     private FloatingActionButton fabAdd;
+    private DependencyAdapter adapter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.adapter = new DependencyAdapter(getActivity());
+        setRetainInstance(true);
+    }
 
+    /**
+     * este metodo es el que usa la visata para cargar los datos del repositorio
+     * @param list
+     */
+    @Override
+    public void ShowDependency(List<Dependency> list) {
+        adapter.clear();
+        adapter.addAll(list);
+    }
 
     interface  ListDependencyListener{
         void addNewDependency();
@@ -47,7 +67,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         }
     }
 
-    public static ListDependencyFragment newInstance(Bundle bundle){
+    public static ListDependencyFragmentImpl newInstance(Bundle bundle){
         ListDependencyFragmentImpl listDependency = new ListDependencyFragmentImpl();
         if (bundle!=null){
             listDependency.setArguments(bundle);
@@ -68,17 +88,24 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
                 listener.addNewDependency();
             }
         });
+        presenter.LoadDependency();
                 return rootView;
     }
 
+    /**
+     * se le asigna el adapter sin datos
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setListAdapter(new DependencyAdapter(getActivity()));
+        setListAdapter(adapter);
+        //setListAdapter(new DependencyAdapter(getActivity()));
     }
 
     @Override
     public void setPresenter(BasePresenter presenter) {
-        this.presenter =  presenter;
+        this.presenter = (ListDepencencyPresenter) presenter;
     }
 }

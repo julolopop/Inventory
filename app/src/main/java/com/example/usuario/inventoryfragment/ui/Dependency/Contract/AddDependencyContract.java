@@ -1,7 +1,6 @@
 package com.example.usuario.inventoryfragment.ui.Dependency.Contract;
 
 import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.AddDependencyInteractor;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.AddDependencyFragment;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
 import com.example.usuario.inventoryfragment.ui.base.BaseView;
 

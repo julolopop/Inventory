@@ -1,28 +1,49 @@
 package com.example.usuario.inventoryfragment.ui.Dependency;
 
+import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.usuario.inventoryfragment.R;
+import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.AddDependencyContract;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.AddDependencyFragment;
+import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
 
-public class AddDependencyFragmentImpl extends Fragment implements AddDependencyFragment ,AddDependencyContract.View{
+public class AddDependencyFragmentImpl extends Fragment implements AddDependencyContract.View{
 
 
+    private AddDependencyListener listener;
     private AddDependencyContract.Presenter presenter;
     public static final String TAG = "AddDependencyFragmentImpl";
     TextInputEditText name ;
     TextInputEditText shortName;
     TextInputEditText description;
 
+
+    interface  AddDependencyListener{
+        void listNewDependency();
+    }
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            listener = (AddDependencyListener) activity;
+        }catch (ClassCastException e){
+            throw  new ClassCastException(getActivity().getLocalClassName()+"must implement ListDependencyListener");
+        }
+    }
 
     public static AddDependencyFragmentImpl newInstance(Bundle bundle){
         AddDependencyFragmentImpl addDependencyFragment = new AddDependencyFragmentImpl();
@@ -73,6 +94,8 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
 
     @Override
     public void NavigateToHome() {
-
+        DependencyRepository d = DependencyRepository.getInstance();
+        d.addDependency(new Dependency(d.getDependencies().toArray().length,name.getText().toString(),shortName.getText().toString(),description.getText().toString()));
+        listener.listNewDependency();
     }
 }

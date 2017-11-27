@@ -5,4 +5,5 @@ package com.example.usuario.inventoryfragment.ui.base;
  */
 
 public interface BasePresenter {
+
 }

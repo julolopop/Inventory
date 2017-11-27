@@ -14,6 +14,8 @@ import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.util.ArrayList;
+
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
  * @Version 1.0
@@ -27,7 +29,8 @@ public class DependencyAdapter extends ArrayAdapter<Dependency>{
      * @param context
      */
     public DependencyAdapter(@NonNull Context context) {
-        super(context, R.layout.item_dependecy, DependencyRepository.getInstance().getDependencies());
+        //super(context, R.layout.item_dependecy, DependencyRepository.getInstance().getDependencies());
+        super(context, R.layout.item_dependecy, new ArrayList<Dependency>());
         sort(new Dependency.OrderByShortName());
     }
 

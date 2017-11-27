@@ -52,7 +52,7 @@
                         android:id="@+id/tie_NombreLargo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="hint" />
+                        android:hint="Nombre" />
                 </android.support.design.widget.TextInputLayout>
 
 
@@ -70,7 +70,7 @@
                         android:id="@+id/tie_NombreCorto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="hint" />
+                        android:hint="SortName" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -87,7 +87,7 @@
                         android:id="@+id/tie_Description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="hint" />
+                        android:hint="Description" />
 
                 </android.support.design.widget.TextInputLayout>
 

@@ -8,11 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.ui.Dependency.Interface.DetailDependencyFragment;
 
 
-public class DetailDependencyFragmentImpl extends Fragment implements DetailDependencyFragment{
+public class DetailDependencyFragmentImpl extends Fragment {
 
     public static final  String TAG = "DetailDependencyFragmentImpl";
 }
