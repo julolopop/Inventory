@@ -38,6 +38,11 @@ public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,
     }
 
     @Override
+    public void OnCloneError() {
+        view.SetCloneError();
+    }
+
+    @Override
     public void OnSuccess() {
         view.NavigateToHome();
     }

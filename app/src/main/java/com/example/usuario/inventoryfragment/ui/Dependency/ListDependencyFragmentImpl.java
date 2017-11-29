@@ -9,9 +9,14 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.usuario.inventoryfragment.Adapter.DependencyAdapter;
 import com.example.usuario.inventoryfragment.R;
+import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
@@ -34,6 +39,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     private ListDependencyListener listener;
     private FloatingActionButton fabAdd;
     private DependencyAdapter adapter;
+    private ListView list;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +59,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     }
 
     interface  ListDependencyListener{
-        void addNewDependency();
+        void addNewDependency(Bundle bundle);
     }
 
 
@@ -85,7 +91,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.addNewDependency();
+                listener.addNewDependency(null);
             }
         });
         presenter.LoadDependency();
@@ -100,8 +106,27 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setListAdapter(adapter);
+        list= (ListView) view.findViewById(android.R.id.list);
+
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+
+                bundle.putString("nombre", DependencyRepository.getInstance().getDependencies().get(position).getName());
+                bundle.putString("shortname",DependencyRepository.getInstance().getDependencies().get(position).getShortname());
+                bundle.putString("descripcion", DependencyRepository.getInstance().getDependencies().get(position).getDescription());
+                bundle.putInt("posicion",position);
+
+                listener.addNewDependency(bundle);
+            }
+        });
+
+
+        //setListAdapter(adapter);
         //setListAdapter(new DependencyAdapter(getActivity()));
+
     }
 
     @Override

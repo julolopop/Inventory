@@ -33,10 +33,10 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        listDependency = (ListDependencyFragmentImpl) fragmentManager.findFragmentByTag(ListDependencyFragmentImpl.TAG);
+        //listDependency = (ListDependencyFragmentImpl) fragmentManager.findFragmentByTag(ListDependencyFragmentImpl.TAG);
         if(listDependency == null){
             listDependency = (ListDependencyFragmentImpl) ListDependencyFragmentImpl.newInstance(null);
-            fragmentTransaction.add( android.R.id.content,listDependency, ListDependencyFragmentImpl.TAG);
+            fragmentTransaction.replace( android.R.id.content,listDependency, ListDependencyFragmentImpl.TAG);
             fragmentTransaction.commit();
 
         }
@@ -48,13 +48,13 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
 
 
     @Override
-    public void addNewDependency() {
+    public void addNewDependency(Bundle bundle) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         addeditDependency = (AddDependencyFragmentImpl)fragmentManager.findFragmentByTag(AddDependencyFragmentImpl.TAG);
         if(addeditDependency == null){
-            addeditDependency = (AddDependencyFragmentImpl) AddDependencyFragmentImpl.newInstance(null);
+            addeditDependency = (AddDependencyFragmentImpl) AddDependencyFragmentImpl.newInstance(bundle);
             fragmentTransaction.replace( android.R.id.content,addeditDependency, ListDependencyFragmentImpl.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();

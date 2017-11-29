@@ -66,6 +66,23 @@ public class Dependency implements Comparable<Dependency>{
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dependency)) return false;
+
+        Dependency that = (Dependency) o;
+
+        if (!getName().equals(that.getName())) return false;
+        return getShortname().equals(that.getShortname());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getName().hashCode();
+        result = 31 * result + getShortname().hashCode();
+        return result;
+    }
 
     @Override
     public int compareTo(@NonNull Dependency dependency) {

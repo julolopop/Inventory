@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
@@ -18,6 +19,7 @@ import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.AddDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
+import com.example.usuario.inventoryfragment.utils.AddEdit;
 
 public class AddDependencyFragmentImpl extends Fragment implements AddDependencyContract.View{
 
@@ -28,7 +30,8 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
     TextInputEditText name ;
     TextInputEditText shortName;
     TextInputEditText description;
-
+    int posicion;
+    private AddEdit mode;
 
     interface  AddDependencyListener{
         void listNewDependency();
@@ -58,10 +61,20 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_add_dependency,container,false);
 
+        posicion = -1;
+        mode = new AddEdit();
         FloatingActionButton fabadd = (FloatingActionButton)rootView.findViewById(R.id.fab);
         name = (TextInputEditText)rootView.findViewById(R.id.tie_NombreLargo);
         shortName = (TextInputEditText)rootView.findViewById(R.id.tie_NombreCorto);
         description = (TextInputEditText)rootView.findViewById(R.id.tie_Description);
+
+        if(this.getArguments()!=null) {
+            name.setText(this.getArguments().getString("nombre"));
+            shortName.setText(this.getArguments().getString("shortname"));
+            description.setText(this.getArguments().getString("descripcion"));
+            posicion = this.getArguments().getInt("posicion");
+            mode.setMode(1);
+        }
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,9 +106,23 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
     }
 
     @Override
+    public void SetCloneError() {
+        this.name.setError("EL nombre ya existe");
+        this.shortName.setError("EL shortname ya existe");
+    }
+
+    @Override
     public void NavigateToHome() {
         DependencyRepository d = DependencyRepository.getInstance();
-        d.addDependency(new Dependency(d.getDependencies().toArray().length,name.getText().toString(),shortName.getText().toString(),description.getText().toString()));
+
+        if(mode.getMode() == 1) {
+            d.getDependencies().get(posicion).setName(name.getText().toString());
+            d.getDependencies().get(posicion).setShortname(shortName.getText().toString());
+            d.getDependencies().get(posicion).setDescription(description.getText().toString());
+
+        }else{
+            d.addDependency(new Dependency(d.getDependencies().toArray().length, name.getText().toString(), shortName.getText().toString(), description.getText().toString()));
+        }
         listener.listNewDependency();
     }
 }

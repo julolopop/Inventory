@@ -14,6 +14,8 @@ public interface AddDependencyContract {
         void SetNameEmpyteError();
         void SetShortNameEmpyteError();
         void SetDesciptionEmpyteError();
+        void SetCloneError();
+
 
         void NavigateToHome();
     }
