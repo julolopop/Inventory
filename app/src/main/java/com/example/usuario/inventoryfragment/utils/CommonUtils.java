@@ -1,5 +1,21 @@
 package com.example.usuario.inventoryfragment.utils;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.app.VoiceInteractor;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+
+import com.example.usuario.inventoryfragment.R;
+import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
+import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,17 +31,54 @@ public final class CommonUtils {
      * contiene al menos un carácter Mayuscula
      * contiene al menos un carácter Minuscula
      * contiene al menos 6 carácteres
+     *
      * @param password
      * @return
      */
-    public static boolean isPasswordvalid(String password){
+    public static boolean isPasswordvalid(String password) {
         Pattern pattern;
         Matcher matcher;
         final String PASSWORD_PATTERN = ".*";//([a-z]+[A-Z]+[0-9]+){6,}";
         pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher=pattern.matcher(password);
+        matcher = pattern.matcher(password);
 
         return matcher.matches();
+    }
+
+  /*  public static ProgressDialog ShowLoadinfDialog(Context context){
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.show();
+
+        if (progressDialog.getWindow() != null){
+            progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        progressDialog.setContentView(R.layout.progress_layout);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
+        return progressDialog;
+    }
+*/
+
+    public static Dialog ShowConfirmDialog(final Bundle bundle, Context context, final BasePresenter presenter) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(bundle.getString(ConfirmationDialog.MESSAGE))
+                .setTitle(bundle.getString(ConfirmationDialog.TITULO))
+                .setPositiveButton(R.string.btnOK, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(presenter instanceof ListDepencencyPresenter)
+                            ((ListDepencencyPresenter)presenter).EliminarDependency(bundle.getInt(ConfirmationDialog.POSICION));
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton(R.string.btnCancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        return builder.create();
     }
 
 }

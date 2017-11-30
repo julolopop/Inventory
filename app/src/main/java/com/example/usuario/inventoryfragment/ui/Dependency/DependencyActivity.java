@@ -20,10 +20,11 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
 
     private ListDependencyFragmentImpl listDependency;
     private AddDependencyFragmentImpl addeditDependency;
-    private Fragment detailDependency;
+    //private Fragment detailDependency;
 
     private ListDepencencyPresenter listDepencencyPresenter;
     private  AddDepencencyPresenter addDepencencyPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

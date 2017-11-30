@@ -1,12 +1,16 @@
 package com.example.usuario.inventoryfragment.ui.Dependency;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,6 +27,8 @@ import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencen
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
 import com.example.usuario.inventoryfragment.ui.base.BaseView;
+import com.example.usuario.inventoryfragment.utils.CommonUtils;
+import com.example.usuario.inventoryfragment.utils.ConfirmationDialog;
 
 import net.bytebuddy.implementation.bytecode.Throw;
 
@@ -41,11 +47,50 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     private DependencyAdapter adapter;
     private ListView list;
 
+
+
+    /**
+     * crea de adapter
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.adapter = new DependencyAdapter(getActivity());
         setRetainInstance(true);
+    }
+
+    /**
+     * Este metodo se asigna al presentador del contexto
+     * @param menu
+     * @param v
+     * @param menuInfo
+     */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Opción de dependencia");
+        getActivity().getMenuInflater().inflate(R.menu.menu_fragment_listdependency,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+
+
+        switch (item.getItemId()) {
+            case R.id.fragment_listdependency:
+                Bundle bundle = new Bundle();
+                bundle.putString(ConfirmationDialog.MESSAGE ,"Desea eliminar la dependencia");
+                bundle.putString(ConfirmationDialog.TITULO ,"Eliminar Dependencia");
+                bundle.putInt(ConfirmationDialog.POSICION,info.position);
+
+                CommonUtils.ShowConfirmDialog(bundle,getActivity(),presenter)
+                        .show();
+                break;
+        }
+        return  super.onContextItemSelected(item);
     }
 
     /**
@@ -57,6 +102,8 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         adapter.clear();
         adapter.addAll(list);
     }
+
+
 
     interface  ListDependencyListener{
         void addNewDependency(Bundle bundle);
@@ -72,6 +119,8 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
             throw  new ClassCastException(getActivity().getLocalClassName()+"must implement ListDependencyListener");
         }
     }
+
+
 
     public static ListDependencyFragmentImpl newInstance(Bundle bundle){
         ListDependencyFragmentImpl listDependency = new ListDependencyFragmentImpl();
@@ -99,7 +148,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     }
 
     /**
-     * se le asigna el adapter sin datos
+     * se le asigna el adapter sin datos y pulsacion larga del menu (Crear despues de crear la vista)
      * @param view
      * @param savedInstanceState
      */
@@ -126,11 +175,13 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
 
         //setListAdapter(adapter);
         //setListAdapter(new DependencyAdapter(getActivity()));
-
+        registerForContextMenu(getListView());
     }
 
     @Override
     public void setPresenter(BasePresenter presenter) {
         this.presenter = (ListDepencencyPresenter) presenter;
     }
+
+
 }

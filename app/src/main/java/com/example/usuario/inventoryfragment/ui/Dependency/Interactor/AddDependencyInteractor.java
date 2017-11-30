@@ -25,12 +25,13 @@ public class AddDependencyInteractor {
 
         DependencyRepository d = DependencyRepository.getInstance();
 
-
+/*
         for (int i = 0; i < d.getDependencies().toArray().length; i++) {
-            if (d.getDependencies().get(i).getName().compareTo(Name) == 0 && d.getDependencies().get(i).getShortname().compareTo(ShortName) == 0)
+            if (d.getDependencies().get(i).getName().compareTo(Name) == 0 && d.getDependencies().get(i).getShortname().compareTo(ShortName) == 0) {
                 listener.OnCloneError();
-            pasar = false;
-        }
+                pasar = false;
+            }
+        }*/
         //si el password es vacio
         if (Name.isEmpty()) {
             listener.OnNameEmpyteError();

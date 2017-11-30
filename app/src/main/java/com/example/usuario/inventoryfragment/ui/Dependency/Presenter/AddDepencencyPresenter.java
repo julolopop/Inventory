@@ -1,6 +1,5 @@
 package com.example.usuario.inventoryfragment.ui.Dependency.Presenter;
 
-import com.example.usuario.inventoryfragment.ui.Dependency.AddDependencyFragmentImpl;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.AddDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.AddDependencyInteractor;
 
@@ -10,7 +9,7 @@ import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.AddDepende
 
 public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,AddDependencyInteractor.OnAddDependencyListener{
     AddDependencyContract.View view;
-    private AddDependencyInteractor addInteractor = new AddDependencyInteractor();
+    private AddDependencyInteractor interactor = new AddDependencyInteractor();
 
 
     public AddDepencencyPresenter(AddDependencyContract.View view) {
@@ -19,7 +18,7 @@ public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,
 
     @Override
     public void ValidateCredentails(String Name, String ShortName, String Description) {
-       addInteractor.ValidateCredentails(Name,ShortName,Description,this);
+       interactor.ValidateCredentails(Name,ShortName,Description,this);
     }
 
     @Override
@@ -46,4 +45,5 @@ public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,
     public void OnSuccess() {
         view.NavigateToHome();
     }
+
 }

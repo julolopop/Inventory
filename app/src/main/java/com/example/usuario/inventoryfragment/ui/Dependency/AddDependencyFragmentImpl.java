@@ -73,7 +73,7 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
             shortName.setText(this.getArguments().getString("shortname"));
             description.setText(this.getArguments().getString("descripcion"));
             posicion = this.getArguments().getInt("posicion");
-            mode.setMode(1);
+            mode.setMode(AddEdit.EDIT_MODE);
         }
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +115,7 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
     public void NavigateToHome() {
         DependencyRepository d = DependencyRepository.getInstance();
 
-        if(mode.getMode() == 1) {
+        if(mode.getMode() == AddEdit.EDIT_MODE) {
             d.getDependencies().get(posicion).setName(name.getText().toString());
             d.getDependencies().get(posicion).setShortname(shortName.getText().toString());
             d.getDependencies().get(posicion).setDescription(description.getText().toString());
@@ -125,4 +125,5 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
         }
         listener.listNewDependency();
     }
+
 }

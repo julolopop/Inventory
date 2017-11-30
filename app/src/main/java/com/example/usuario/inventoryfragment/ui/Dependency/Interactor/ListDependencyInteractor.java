@@ -15,6 +15,7 @@ public class ListDependencyInteractor {
 
     public interface OnLoadDependencyListener {
         void OnSuccess(List<Dependency> list);
+
     }
 
 
@@ -24,5 +25,10 @@ public class ListDependencyInteractor {
 
     public void getDependency() {
         listener.OnSuccess(DependencyRepository.getInstance().getDependencies());
+    }
+    public void EliminarDependency(int pos){
+        DependencyRepository d = DependencyRepository.getInstance();
+        d.getDependencies().remove(pos);
+        listener.OnSuccess(d.getInstance().getDependencies());
     }
 }
