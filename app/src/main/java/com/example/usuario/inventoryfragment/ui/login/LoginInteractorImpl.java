@@ -19,9 +19,9 @@ public class LoginInteractorImpl implements LoginInteractor {
             if (user.isEmpty())
             listener.OnUserEmpyteError();
         else
-            if (!CommonUtils.isPasswordvalid(password))
+            /*if (!CommonUtils.isPasswordvalid(password))
             listener.OnPasswordError();
-        else
+        else*/
             if (UserRepository.getInstance().validateCredentials(user, password))
             listener.OnSuccess();
     }

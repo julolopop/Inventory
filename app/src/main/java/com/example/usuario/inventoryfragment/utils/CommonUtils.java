@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.example.usuario.inventoryfragment.R;
+import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
 
@@ -36,9 +37,10 @@ public final class CommonUtils {
      * @return
      */
     public static boolean isPasswordvalid(String password) {
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$";
         Pattern pattern;
         Matcher matcher;
-        final String PASSWORD_PATTERN = ".*";//([a-z]+[A-Z]+[0-9]+){6,}";
+
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);
 
@@ -68,7 +70,7 @@ public final class CommonUtils {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(presenter instanceof ListDepencencyPresenter)
-                            ((ListDepencencyPresenter)presenter).EliminarDependency(bundle.getInt(ConfirmationDialog.POSICION));
+                            ((ListDepencencyPresenter)presenter).EliminarDependency((Dependency) bundle.getParcelable(ConfirmationDialog.DEPENDENCY));
                         dialog.cancel();
                     }
                 })

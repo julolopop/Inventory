@@ -1,5 +1,7 @@
 package com.example.usuario.inventoryfragment.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import java.util.Comparator;
@@ -11,11 +13,30 @@ import java.util.Comparator;
  */
 
 
-public class Dependency implements Comparable<Dependency>{
+public class Dependency implements Comparable<Dependency>,Parcelable{
     private int _ID;
     private  String name;
     private  String shortname;
     private String description;
+
+    protected Dependency(Parcel in) {
+        _ID = in.readInt();
+        name = in.readString();
+        shortname = in.readString();
+        description = in.readString();
+    }
+
+    public static final Creator<Dependency> CREATOR = new Creator<Dependency>() {
+        @Override
+        public Dependency createFromParcel(Parcel in) {
+            return new Dependency(in);
+        }
+
+        @Override
+        public Dependency[] newArray(int size) {
+            return new Dependency[size];
+        }
+    };
 
     public int get_ID() {
         return _ID;
@@ -87,6 +108,19 @@ public class Dependency implements Comparable<Dependency>{
     @Override
     public int compareTo(@NonNull Dependency dependency) {
         return name.compareTo(dependency.name);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(_ID);
+        dest.writeString(name);
+        dest.writeString(shortname);
+        dest.writeString(description);
     }
 
     public static class OrderByShortName implements Comparator<Dependency>{

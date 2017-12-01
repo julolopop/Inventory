@@ -9,16 +9,21 @@ import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.AddDepende
 
 public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,AddDependencyInteractor.OnAddDependencyListener{
     AddDependencyContract.View view;
-    private AddDependencyInteractor interactor = new AddDependencyInteractor();
+    private AddDependencyInteractor interactor ;
 
 
     public AddDepencencyPresenter(AddDependencyContract.View view) {
         this.view = view;
+        interactor = new AddDependencyInteractor(this);
     }
 
     @Override
     public void ValidateCredentails(String Name, String ShortName, String Description) {
-       interactor.ValidateCredentails(Name,ShortName,Description,this);
+       interactor.ValidateCredentails(Name,ShortName,Description);
+    }
+    @Override
+    public void EditDependency(String Name, String ShortName, String Description,int pos) {
+        interactor.EditDependency(Name,ShortName,Description,pos);
     }
 
     @Override

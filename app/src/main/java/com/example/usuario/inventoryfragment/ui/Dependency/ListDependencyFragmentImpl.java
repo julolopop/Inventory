@@ -76,7 +76,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-
+        Dependency dependency = (Dependency) getListView().getItemAtPosition(info.position);
 
 
         switch (item.getItemId()) {
@@ -84,7 +84,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
                 Bundle bundle = new Bundle();
                 bundle.putString(ConfirmationDialog.MESSAGE ,"Desea eliminar la dependencia");
                 bundle.putString(ConfirmationDialog.TITULO ,"Eliminar Dependencia");
-                bundle.putInt(ConfirmationDialog.POSICION,info.position);
+                bundle.putParcelable(ConfirmationDialog.DEPENDENCY,dependency);
 
                 CommonUtils.ShowConfirmDialog(bundle,getActivity(),presenter)
                         .show();

@@ -19,6 +19,6 @@ public interface ListDependencyContract {
     }
     interface Presenter extends BasePresenter{
         void LoadDependency();
-        void EliminarDependency(int pos);
+        void EliminarDependency(Dependency dependencia);
     }
 }

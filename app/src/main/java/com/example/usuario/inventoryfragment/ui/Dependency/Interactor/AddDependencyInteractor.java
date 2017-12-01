@@ -1,12 +1,19 @@
 package com.example.usuario.inventoryfragment.ui.Dependency.Interactor;
 
 import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.pojo.Dependency;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by usuario on 24/11/17.
  */
 
 public class AddDependencyInteractor {
+
+    OnAddDependencyListener listener;
+
     public interface OnAddDependencyListener {
         void OnNameEmpyteError();
 
@@ -18,20 +25,23 @@ public class AddDependencyInteractor {
 
         void OnSuccess();
     }
+    public AddDependencyInteractor(OnAddDependencyListener listener) {
+        this.listener = listener;
+    }
 
-
-    public void ValidateCredentails(String Name, String ShortName, String Description, AddDependencyInteractor.OnAddDependencyListener listener) {
+    public void ValidateCredentails(String Name, String ShortName, String Description) {
         boolean pasar = true;
 
-        DependencyRepository d = DependencyRepository.getInstance();
 
-/*
-        for (int i = 0; i < d.getDependencies().toArray().length; i++) {
-            if (d.getDependencies().get(i).getName().compareTo(Name) == 0 && d.getDependencies().get(i).getShortname().compareTo(ShortName) == 0) {
-                listener.OnCloneError();
-                pasar = false;
-            }
-        }*/
+
+        if (DependencyRepository.getInstance().validateDependency(Name, ShortName)) {
+            AddDependency(Name, ShortName, Description);
+        }
+
+        if (!(DependencyRepository.getInstance().validateDependency(Name, ShortName))) {
+            listener.OnCloneError();
+            pasar = false;
+        }
         //si el password es vacio
         if (Name.isEmpty()) {
             listener.OnNameEmpyteError();
@@ -45,8 +55,27 @@ public class AddDependencyInteractor {
             listener.OnDesciptionEmpyteError();
             pasar = false;
         }
+
         if (pasar)
             listener.OnSuccess();
+    }
+
+
+    public void AddDependency(String name, String sortname, String description) {
+        ArrayList<Dependency> arrayList = DependencyRepository.getInstance().getDependencies();
+        int pos = DependencyRepository.getInstance().getDependencies().get(arrayList.toArray().length-1).get_ID();
+        Dependency dependency = new Dependency(pos, name, sortname, description);
+        DependencyRepository.getInstance().addDependency(dependency);
+
+    }
+
+
+
+    public void EditDependency(String Name, String ShortName, String Description,int pos) {
+
+        Dependency dependency = new Dependency(pos,Name,ShortName,Description);
+        DependencyRepository.getInstance().editDependency(dependency);
+        listener.OnSuccess();
     }
 }
 

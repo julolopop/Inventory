@@ -29,8 +29,8 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
     }
 
     @Override
-    public void EliminarDependency(int pos) {
-        interactor.EliminarDependency(pos);
+    public void EliminarDependency(Dependency dependencia) {
+        interactor.EliminarDependency(dependencia);
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.usuario.inventoryfragment.utils;
 
+import com.example.usuario.inventoryfragment.pojo.Dependency;
+
 /**
  * Created by usuario on 30/11/17.
  */
@@ -7,5 +9,5 @@ package com.example.usuario.inventoryfragment.utils;
 public interface ConfirmationDialog {
     static String MESSAGE ="message";
     static String TITULO = "titulo";
-    static String POSICION = "posicion";
+    static String DEPENDENCY = "dependency";
 }

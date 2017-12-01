@@ -4,6 +4,8 @@ import com.example.usuario.inventoryfragment.pojo.Dependency;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.function.Consumer;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -11,7 +13,7 @@ import java.util.Collections;
  * @Descripcion Creacion del array de Dependencias
  */
 
-public class DependencyRepository {
+public class DependencyRepository implements Iterator<Dependency>{
     //declaración
     ArrayList<Dependency> dependencies;
 
@@ -63,5 +65,66 @@ public class DependencyRepository {
     public ArrayList<Dependency> getDependencies() {
         Collections.sort(this.dependencies);
         return  this.dependencies;
+    }
+
+    public void editDependency(Dependency dependencia) {
+        int index = 0;
+
+        while (index < dependencies.size()) {
+            if (dependencia.get_ID() == dependencies.get(index).get_ID()) {
+                dependencies.get(index).setDescription(dependencia.getDescription());
+                index = dependencies.size();
+            } else
+                index++;
+        }
+
+    }
+
+
+    public void deleteDependency(Dependency dependencia) {
+        Iterator<Dependency> iterator = dependencies.iterator();
+        Dependency dependency;
+
+        while (iterator.hasNext()){
+            dependency = iterator.next();
+            if (dependency.getName().equals(dependencia.getName())){
+                iterator.remove();
+            }
+        }
+    }
+
+    public boolean validateDependency(String name, String sortname) {
+        boolean result = true;
+        int index = 0;
+
+        while (index < dependencies.size()) {
+            if (name.equals(dependencies.get(index).getName()) || sortname.equals(dependencies.get(index).getShortname())) {
+                result = false;
+                index = dependencies.size();
+            } else
+                index++;
+        }
+
+        return result;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
+
+    @Override
+    public Dependency next() {
+        return null;
+    }
+
+    @Override
+    public void remove() {
+
+    }
+
+    @Override
+    public void forEachRemaining(Consumer<? super Dependency> action) {
+
     }
 }
