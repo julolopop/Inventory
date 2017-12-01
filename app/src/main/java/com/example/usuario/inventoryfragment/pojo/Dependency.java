@@ -129,4 +129,11 @@ public class Dependency implements Comparable<Dependency>,Parcelable{
             return dependency1.getShortname().compareTo(dependency2.getShortname());
         }
     }
+    public static class OrderByID implements Comparator<Dependency>{
+        @Override
+        public int compare(Dependency dependency1, Dependency dependency2) {
+            return dependency1.get_ID() == dependency2.get_ID()?0:
+                    dependency1.get_ID() < dependency2.get_ID()?1:-1;
+        }
+    }
 }

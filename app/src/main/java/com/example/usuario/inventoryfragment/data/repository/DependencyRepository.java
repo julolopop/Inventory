@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  * @Descripcion Creacion del array de Dependencias
  */
 
-public class DependencyRepository implements Iterator<Dependency>{
+public class DependencyRepository{
     //declaración
     ArrayList<Dependency> dependencies;
 
@@ -108,23 +108,4 @@ public class DependencyRepository implements Iterator<Dependency>{
         return result;
     }
 
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public Dependency next() {
-        return null;
-    }
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public void forEachRemaining(Consumer<? super Dependency> action) {
-
-    }
 }

@@ -10,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -183,5 +185,12 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         this.presenter = (ListDepencencyPresenter) presenter;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
 
+            menuInflater.inflate(R.menu.menu_dependencyshort, menu);
+
+
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
 }

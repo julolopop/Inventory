@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="@string/byshort_name"
+        android:id="@+id/byshortName"
+        app:showAsAction="never"/>
+    <item android:title="@string/byid"
+        android:id="@+id/byid"
+        app:showAsAction="never"/>
+</menu>
