@@ -24,15 +24,13 @@
         <activity android:name="com.example.usuario.inventoryfragment.ui.Dashboard.DashBoardActivity" />
         <activity android:name="com.example.usuario.inventoryfragment.ui.Product.ProductosActivity" />
         <activity
-            android:name="com.example.usuario.inventoryfragment.ui.Dependency.DependencyActivity"
-            android:theme="@style/AppTheme1" />
+            android:name="com.example.usuario.inventoryfragment.ui.Dependency.DependencyActivity"/>
         <activity
             android:name="com.example.usuario.inventoryfragment.ui.Sector.SectorActivity"
             android:theme="@style/AppTheme1" />
         <activity android:name="com.example.usuario.inventoryfragment.ui.Setting.GeneralSettingActivity" />
         <activity android:name="com.example.usuario.inventoryfragment.ui.Setting.AccountSettingActivity" />
         <activity android:name="com.example.usuario.inventoryfragment.ui.about.AboutActivity" />
-        <activity android:name="com.example.usuario.inventoryfragment.ui.Dependency.AddDependencyFragmentImpl"/>
         <activity android:name="com.example.usuario.inventoryfragment.ui.base.BaseActivity" />
     </application>
 

@@ -4,11 +4,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BaseActivity;
+
+import java.util.zip.Inflater;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -24,6 +29,8 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
 
     private ListDepencencyPresenter listDepencencyPresenter;
     private  AddDepencencyPresenter addDepencencyPresenter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,7 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         listDepencencyPresenter = new ListDepencencyPresenter(listDependency);
 
         listDependency.setPresenter(listDepencencyPresenter);
+
     }
 
 
@@ -80,5 +88,14 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         listDepencencyPresenter = new ListDepencencyPresenter(listDependency);
         listDependency.setPresenter(listDepencencyPresenter);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_dependencyshort, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
 }
 

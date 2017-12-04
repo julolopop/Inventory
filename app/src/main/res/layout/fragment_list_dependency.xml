@@ -24,14 +24,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar_dependency3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme" />
-
             <android.support.design.widget.CoordinatorLayout
                 android:id="@+id/coordinator"
                 android:layout_width="match_parent"

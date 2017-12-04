@@ -60,6 +60,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         super.onCreate(savedInstanceState);
         this.adapter = new DependencyAdapter(getActivity());
         setRetainInstance(true);
+
     }
 
     /**
@@ -185,12 +186,5 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         this.presenter = (ListDepencencyPresenter) presenter;
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
 
-            menuInflater.inflate(R.menu.menu_dependencyshort, menu);
-
-
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
 }
