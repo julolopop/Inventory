@@ -27,6 +27,7 @@ public class ListDependencyInteractor{
     public void getDependency() {
         listener.OnSuccess(DependencyRepository.getInstance().getDependencies());
     }
+
     public void EliminarDependency(Dependency dependencia){
 
 
@@ -34,4 +35,12 @@ public class ListDependencyInteractor{
         d.getInstance().deleteDependency(dependencia);
         listener.OnSuccess(d.getInstance().getDependencies());
     }
+
+
+    public void EliminarSeletion(Integer key) {
+        DependencyRepository d = DependencyRepository.getInstance();
+        d.deleteDependency(d.getDependencies().get(key));
+        listener.OnSuccess(d.getInstance().getDependencies());
+    }
+
 }

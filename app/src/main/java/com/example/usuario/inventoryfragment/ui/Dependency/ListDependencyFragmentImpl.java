@@ -175,6 +175,15 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
             }
         });
 
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        list.setMultiChoiceModeListener(new DependencyMultiChoiceModeListener(presenter));
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                list.setItemChecked(position,!presenter.isPositionCheked(position));
+                return true;
+            }
+        });
 
         //setListAdapter(adapter);
         //setListAdapter(new DependencyAdapter(getActivity()));

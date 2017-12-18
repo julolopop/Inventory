@@ -20,5 +20,13 @@ public interface ListDependencyContract {
     interface Presenter extends BasePresenter{
         void LoadDependency();
         void EliminarDependency(Dependency dependencia);
+
+        void deleteSelection();
+
+        void setNewSelection(int position);
+
+        boolean isPositionCheked(int position);
+
+        void removeSelection(int position);
     }
 }
