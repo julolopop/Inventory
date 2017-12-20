@@ -1,7 +1,6 @@
 package com.example.usuario.inventoryfragment.ui.Dashboard;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayout;
@@ -13,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.usuario.inventoryfragment.data.prefs.AppPreferenceshelper;
-import com.example.usuario.inventoryfragment.data.prefs.InventoryApplication;
+import com.example.usuario.inventoryfragment.InventoryApplication;
 import com.example.usuario.inventoryfragment.ui.Setting.AccountSettingActivity;
 import com.example.usuario.inventoryfragment.ui.Setting.GeneralSettingActivity;
 import com.example.usuario.inventoryfragment.R;
@@ -150,12 +149,14 @@ public class DashBoardActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ShowApppreferences();
+        ShowApppreferences(); //hay que comentarlo en application del manifies como name
     }
 
     private void ShowApppreferences() {
-        AppPreferenceshelper appPreferenceshelper = ((InventoryApplication)getApplicationContext()).getAppPrefencesHelper();
-        String message = "Tu usuario de sesion es "+appPreferenceshelper.getCurrentUserName();
-        Toast.makeText(this,message,Toast.LENGTH_LONG);
+        AppPreferenceshelper sharedPreferences = ((InventoryApplication)getApplicationContext()).getAppPreferencesHelper();
+        String message = "Tu usuario es " + sharedPreferences.getCurrentUserName();
+
+        sharedPreferences.setCurrentUserName("juanam Franco");
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

@@ -37,10 +37,5 @@ public class ListDependencyInteractor{
     }
 
 
-    public void EliminarSeletion(Integer key) {
-        DependencyRepository d = DependencyRepository.getInstance();
-        d.deleteDependency(d.getDependencies().get(key));
-        listener.OnSuccess(d.getInstance().getDependencies());
-    }
 
 }

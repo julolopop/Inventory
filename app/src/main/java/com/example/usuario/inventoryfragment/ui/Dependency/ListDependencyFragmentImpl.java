@@ -40,7 +40,7 @@ import java.util.List;
  * Created by usuario on 23/11/17.
  */
 
-public class ListDependencyFragmentImpl extends ListFragment implements ListDependencyContract.View {
+public class ListDependencyFragmentImpl extends Fragment implements ListDependencyContract.View {
     public static final   String TAG = "ListDependencyFragmentImpl";
 
     private ListDepencencyPresenter presenter;
@@ -79,7 +79,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        Dependency dependency = (Dependency) getListView().getItemAtPosition(info.position);
+        Dependency dependency = (Dependency) list.getItemAtPosition(info.position);
 
 
         switch (item.getItemId()) {
@@ -143,6 +143,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                list.setChoiceMode(ListView.CHOICE_MODE_NONE);
                 listener.addNewDependency(null);
             }
         });
@@ -175,7 +176,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
             }
         });
 
-        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         list.setMultiChoiceModeListener(new DependencyMultiChoiceModeListener(presenter));
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -187,7 +188,7 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
 
         //setListAdapter(adapter);
         //setListAdapter(new DependencyAdapter(getActivity()));
-        registerForContextMenu(getListView());
+        registerForContextMenu(list);
     }
 
     @Override
@@ -196,4 +197,11 @@ public class ListDependencyFragmentImpl extends ListFragment implements ListDepe
     }
 
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_dependencyshort, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
 }

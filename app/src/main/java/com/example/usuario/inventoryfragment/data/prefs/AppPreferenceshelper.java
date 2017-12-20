@@ -3,7 +3,7 @@ package com.example.usuario.inventoryfragment.data.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.usuario.inventoryfragment.ui.inventory.InventoryActivity;
+import com.example.usuario.inventoryfragment.InventoryApplication;
 import com.example.usuario.inventoryfragment.utils.AppConstants;
 
 /**
@@ -27,7 +27,8 @@ public class AppPreferenceshelper implements Preferenceshelper {
     private static AppPreferenceshelper intence;
 
     private AppPreferenceshelper(){
-        this.preferences = InventoryApplication.getContext().getDefaultSharedPreferences(new InventoryApplication());
+        this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME,Context.MODE_PRIVATE);
+        //        this.preferences = InventoryApplication.getContext().getDefaultSharedPreferences(new InventoryApplication());
     }
 
 

@@ -28,5 +28,6 @@ public interface ListDependencyContract {
         boolean isPositionCheked(int position);
 
         void removeSelection(int position);
+
     }
 }

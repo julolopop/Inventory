@@ -12,18 +12,36 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--para la multiselecion para que no la desplace-->
+        <item name="windowActionModeOverlay">true</item>
     </style>
+
+    <style name="Widget.ActionMode" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/cardview_dark_background</item>
+        <item name="actionModeBackground">@color/cardview_dark_background</item>
+        <item name="android:background">@color/cardview_dark_background</item>
+        <item name="android:actionModeBackground">@color/cardview_dark_background</item>
+        <item name="titleTextColor">@color/TextPrimaryLogin</item>
+    </style>
+
+    <style name="title" >
+        <item name="android:textColor">@color/TextPrimaryLogin</item>
+    </style>
+
     <style name="LoginTheme" parent="AppTheme1">
         <item name="android:textColor">@color/TextPrimaryLogin</item>
     </style>
 
     <style name="Widget" parent="@android:style/Widget"/>
+
     <style name="Widget.Button" parent="@android:style/Widget.Button"/>
+
     <style name="Widget.Button.Transparent">
         <item name="android:background">@null</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="LoginEditext">
         <item name="android:padding">10dp</item>
     </style>

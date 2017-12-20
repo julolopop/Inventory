@@ -38,13 +38,13 @@ public class DependencyRepository{
 
     public void Initialize() {
         addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "1CFGS", "1CFGS Desarrollo aplicaciones Multiplataforma"));
-        /*addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones Multiplataforma"));
-        /addDependency(new Dependency(3, "3", "2CFGS", "3"));
+        addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS", "2CFGS Desarrollo aplicaciones Multiplataforma"));
+        addDependency(new Dependency(3, "3", "2CFGS", "3"));
         addDependency(new Dependency(4, "AddDependencyInteractor", "2CFGS", "3"));
         addDependency(new Dependency(5, "1", "3CFGS", "3"));
         addDependency(new Dependency(6, "3", "2CFGS", "4"));
         addDependency(new Dependency(7, "2", "1CFGS", "5"));
-    */}
+    }
 
     //patrón sigletón
     public static DependencyRepository getInstance(){

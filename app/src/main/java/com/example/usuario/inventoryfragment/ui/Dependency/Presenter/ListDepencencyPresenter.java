@@ -3,10 +3,12 @@ package com.example.usuario.inventoryfragment.ui.Dependency.Presenter;
 import android.view.View;
 import android.widget.ListView;
 
+import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.ListDependencyInteractor;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,8 +42,10 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
 
     @Override
     public void deleteSelection() {
+        ArrayList<Dependency> dependencies = DependencyRepository.getInstance().getDependencies();
+
         for (Map.Entry<Integer,Boolean> tmp: selection.entrySet()) {
-            interactor.EliminarSeletion(tmp.getKey());
+            interactor.EliminarDependency(dependencies.get(tmp.getKey()));
         }
     }
 
@@ -64,6 +68,8 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
     public void removeSelection(int position) {
         selection.remove(position);
     }
+
+
 
 
     @Override

@@ -89,12 +89,6 @@ public class DependencyActivity extends BaseActivity  implements ListDependencyF
         listDependency.setPresenter(listDepencencyPresenter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_dependencyshort, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
 
 }
