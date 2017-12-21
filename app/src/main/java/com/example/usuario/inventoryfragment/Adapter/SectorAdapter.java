@@ -12,8 +12,11 @@ import android.widget.TextView;
 import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.pojo.Sector;
 import com.example.usuario.inventoryfragment.data.repository.SectorRepository;
+import com.example.usuario.inventoryfragment.ui.Dependency.ListDependencyFragmentImpl;
+import com.example.usuario.inventoryfragment.ui.Sector.SectorActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -26,19 +29,22 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
     ArrayList<Sector> sectors;
     ArrayList<Sector> sectorsModified;
     private OnSwithCheckedChangeListener onSwithCheckedChangeListener;
+    SectorActivity.OnItemClickListener listener;
     /**
      *Constructor que almacenará los cector que se han modifiado en la interfaz y no han guardado aún la base de datos
      */
-    public SectorAdapter(){
+    public SectorAdapter(SectorActivity.OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = new ArrayList<>();
         onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
+        this.listener = listener;
     }
 
-    public SectorAdapter(ArrayList<Sector> sectorsModified){
+    public SectorAdapter(ArrayList<Sector> sectorsModified, SectorActivity.OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = sectorsModified;
         onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
+        this.listener = listener;
     }
 
     @Override
@@ -60,6 +66,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
         if(sectors.get(position).isDefaultState())
             holder.txv_SectoDefault.setText(R.string.default_text);
 
+        holder.bind(sectors.get(position),listener);
 
     }
 
@@ -83,7 +90,17 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
             txv_Name = (TextView) itemView.findViewById(R.id.txv_nameSector);
             txv_SectoDefault = (TextView) itemView.findViewById(R.id.txv_SortNameSector);
         }
+
+        public void bind(final Sector sector, final SectorActivity.OnItemClickListener listener){
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(sector);
+                }
+            });
+        }
     }
+
 
     /**
      * Devuelve el array de los sectores que el usuario a modificado cuando

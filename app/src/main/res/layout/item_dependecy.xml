@@ -29,7 +29,8 @@
         android:textSize="@dimen/text_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon"
-        app:layout_constraintTop_toTopOf="@+id/icon" />
+        app:layout_constraintTop_toTopOf="@+id/icon"
+        android:fontFamily="@font/font"/>
 
     <TextView
         android:id="@+id/txv_SortName"

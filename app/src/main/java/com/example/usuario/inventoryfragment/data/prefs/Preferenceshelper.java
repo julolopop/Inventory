@@ -6,5 +6,5 @@ package com.example.usuario.inventoryfragment.data.prefs;
 
 public interface Preferenceshelper {
 
-
+void onSharedPreferenceChanged();
 }

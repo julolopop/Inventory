@@ -20,7 +20,12 @@ public class SectorActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private SectorAdapter sectorAdapter;
+    private OnItemClickListener listener;
 
+
+    public interface  OnItemClickListener{
+        void onItemClick(Sector sector);
+    }
     private android.support.v7.widget.Toolbar toolbar;
 
     @Override
@@ -41,9 +46,9 @@ public class SectorActivity extends AppCompatActivity {
         setSupportActionBar(this.toolbar);
 
         if (savedInstanceState != null)
-            sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
+            sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"),listener);
         else
-            sectorAdapter = new SectorAdapter();
+            sectorAdapter = new SectorAdapter(listener);
 
         recyclerView.setAdapter(sectorAdapter);
     }

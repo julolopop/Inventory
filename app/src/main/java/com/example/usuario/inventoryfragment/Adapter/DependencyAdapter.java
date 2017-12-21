@@ -1,6 +1,7 @@
 package com.example.usuario.inventoryfragment.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -70,7 +71,9 @@ public class DependencyAdapter extends ArrayAdapter<Dependency>{
         //4.Mostrar los datos del arrayList de la posición mediante position
         dependencyHolder.icon.setLetter(getItem(position).getShortname().substring(0,1));
         dependencyHolder.txv_Name.setText(getItem(position).getName());
+        Typeface typeface = Typeface.createFromAsset(view.getContext().getAssets(),"font/christmas.ttf");
         dependencyHolder.txv_SortName.setText(getItem(position).getShortname());
+        dependencyHolder.txv_SortName.setTypeface(typeface);
 
 
         return view;

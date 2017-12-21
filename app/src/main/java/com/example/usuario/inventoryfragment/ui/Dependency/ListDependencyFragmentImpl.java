@@ -1,13 +1,10 @@
 package com.example.usuario.inventoryfragment.ui.Dependency;
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -17,22 +14,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.usuario.inventoryfragment.Adapter.DependencyAdapter;
 import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
+import com.example.usuario.inventoryfragment.pojo.Sector;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
-import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.AddDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
 import com.example.usuario.inventoryfragment.ui.base.BasePresenter;
-import com.example.usuario.inventoryfragment.ui.base.BaseView;
 import com.example.usuario.inventoryfragment.utils.CommonUtils;
 import com.example.usuario.inventoryfragment.utils.ConfirmationDialog;
-
-import net.bytebuddy.implementation.bytecode.Throw;
 
 import java.util.List;
 
@@ -44,11 +36,10 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
     public static final   String TAG = "ListDependencyFragmentImpl";
 
     private ListDepencencyPresenter presenter;
-    private ListDependencyListener listener;
+    private ListDependencyListener callback;
     private FloatingActionButton fabAdd;
     private DependencyAdapter adapter;
     private ListView list;
-
 
 
     /**
@@ -117,7 +108,7 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            listener =(ListDependencyListener)activity;
+            callback =(ListDependencyListener)activity;
         }catch (ClassCastException e){
             throw  new ClassCastException(getActivity().getLocalClassName()+"must implement ListDependencyListener");
         }
@@ -144,7 +135,7 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
             @Override
             public void onClick(View v) {
                 list.setChoiceMode(ListView.CHOICE_MODE_NONE);
-                listener.addNewDependency(null);
+                callback.addNewDependency(null);
             }
         });
         presenter.LoadDependency();
@@ -172,7 +163,7 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
                 bundle.putString("descripcion", DependencyRepository.getInstance().getDependencies().get(position).getDescription());
                 bundle.putInt("posicion",position);
 
-                listener.addNewDependency(bundle);
+                callback.addNewDependency(bundle);
             }
         });
 

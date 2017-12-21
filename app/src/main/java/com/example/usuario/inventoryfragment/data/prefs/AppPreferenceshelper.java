@@ -2,6 +2,7 @@ package com.example.usuario.inventoryfragment.data.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.usuario.inventoryfragment.InventoryApplication;
 import com.example.usuario.inventoryfragment.utils.AppConstants;
@@ -20,6 +21,8 @@ public class AppPreferenceshelper implements Preferenceshelper {
     private static final String PREF_KEY_CURRENT_USER_NAME = "pref_key_current_user_name";
     private static final String PREF_KEY_CURRENT_USER_PASSWORD = "pref_key_current_user_password";
     private static final String PREF_KEY_CURRENT_USER_REMEMBER = "pref_key_current_user_remember";
+    private static final String TAG = "AppPreferenceshelper";
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
     /**
      * 2.
       */
@@ -29,6 +32,12 @@ public class AppPreferenceshelper implements Preferenceshelper {
     private AppPreferenceshelper(){
         this.preferences = InventoryApplication.getContext().getSharedPreferences(AppConstants.PREF_NAME,Context.MODE_PRIVATE);
         //        this.preferences = InventoryApplication.getContext().getDefaultSharedPreferences(new InventoryApplication());
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                Log.i(TAG,"onSharedPreferenceChanged  "+key);
+            }
+        }
     }
 
 
