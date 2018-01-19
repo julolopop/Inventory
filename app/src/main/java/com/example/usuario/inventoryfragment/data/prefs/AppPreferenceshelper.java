@@ -37,7 +37,7 @@ public class AppPreferenceshelper implements Preferenceshelper {
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
                 Log.i(TAG,"onSharedPreferenceChanged  "+key);
             }
-        }
+        };
     }
 
 
@@ -84,4 +84,8 @@ public class AppPreferenceshelper implements Preferenceshelper {
     }
 
 
+    @Override
+    public void onSharedPreferenceChanged() {
+
+    }
 }
