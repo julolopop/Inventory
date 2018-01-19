@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.example.usuario.inventoryfragment.Adapter.DependencyAdapter;
 import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.pojo.Sector;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;

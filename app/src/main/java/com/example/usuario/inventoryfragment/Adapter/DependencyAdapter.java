@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;

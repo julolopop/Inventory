@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.usuario.inventoryfragment.R;
 import com.example.usuario.inventoryfragment.pojo.Sector;
-import com.example.usuario.inventoryfragment.data.repository.SectorRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.SectorRepository;
 import com.example.usuario.inventoryfragment.ui.Dependency.ListDependencyFragmentImpl;
 import com.example.usuario.inventoryfragment.ui.Sector.SectorActivity;
 

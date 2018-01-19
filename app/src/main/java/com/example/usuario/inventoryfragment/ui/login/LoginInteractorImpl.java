@@ -1,6 +1,6 @@
 package com.example.usuario.inventoryfragment.ui.login;
 
-import com.example.usuario.inventoryfragment.data.repository.UserRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.UserRepository;
 import com.example.usuario.inventoryfragment.utils.CommonUtils;
 
 /**

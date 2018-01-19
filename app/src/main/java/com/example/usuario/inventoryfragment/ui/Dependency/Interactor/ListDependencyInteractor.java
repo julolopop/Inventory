@@ -1,6 +1,6 @@
 package com.example.usuario.inventoryfragment.ui.Dependency.Interactor;
 
-import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 
 import java.util.Iterator;

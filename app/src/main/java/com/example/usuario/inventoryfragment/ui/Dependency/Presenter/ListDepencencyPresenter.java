@@ -3,7 +3,7 @@ package com.example.usuario.inventoryfragment.ui.Dependency.Presenter;
 import android.view.View;
 import android.widget.ListView;
 
-import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.ListDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Interactor.ListDependencyInteractor;

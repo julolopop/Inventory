@@ -1,7 +1,7 @@
 package com.example.usuario.inventoryfragment;
 
 import com.example.usuario.inventoryfragment.pojo.User;
-import com.example.usuario.inventoryfragment.data.repository.UserRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.UserRepository;
 
 import org.junit.After;
 import org.junit.Before;

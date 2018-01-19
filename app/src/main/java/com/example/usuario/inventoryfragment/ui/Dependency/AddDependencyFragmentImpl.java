@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.usuario.inventoryfragment.R;
-import com.example.usuario.inventoryfragment.data.repository.DependencyRepository;
+import com.example.usuario.inventoryfragment.data.db.repository.DependencyRepository;
 import com.example.usuario.inventoryfragment.pojo.Dependency;
 import com.example.usuario.inventoryfragment.ui.Dependency.Contract.AddDependencyContract;
 import com.example.usuario.inventoryfragment.ui.Dependency.Presenter.ListDepencencyPresenter;
