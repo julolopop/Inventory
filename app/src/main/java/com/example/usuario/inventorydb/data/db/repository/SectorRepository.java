@@ -1,5 +1,8 @@
 package com.example.usuario.inventorydb.data.db.repository;
 
+import android.database.Cursor;
+
+import com.example.usuario.inventorydb.data.db.model.InventoryOpenHelper;
 import com.example.usuario.inventorydb.pojo.Sector;
 
 import java.util.ArrayList;
@@ -52,6 +55,7 @@ public class SectorRepository {
                 6, true, true));
         addSectors(new Sector(9, "Armario9", "ARM9", "Zona para guardar cosas",
                 6, true, true));
+
 
     }
 

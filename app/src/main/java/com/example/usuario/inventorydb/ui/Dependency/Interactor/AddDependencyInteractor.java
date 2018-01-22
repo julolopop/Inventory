@@ -63,7 +63,7 @@ public class AddDependencyInteractor {
     public void AddDependency(String name, String sortname, String description) {
         ArrayList<Dependency> arrayList = DependencyRepository.getInstance().getDependencies();
         int pos = DependencyRepository.getInstance().getDependencies().get(arrayList.toArray().length-1).get_ID();
-        Dependency dependency = new Dependency(pos, name, sortname, description);
+        Dependency dependency = new Dependency(pos, name, sortname, description,null);
         DependencyRepository.getInstance().addDependency(dependency);
 
     }
@@ -72,7 +72,7 @@ public class AddDependencyInteractor {
 
     public void EditDependency(String Name, String ShortName, String Description,int pos) {
 
-        Dependency dependency = new Dependency(pos,Name,ShortName,Description);
+        Dependency dependency = new Dependency(pos,Name,ShortName,Description,null);
         DependencyRepository.getInstance().editDependency(dependency);
         listener.OnSuccess();
     }

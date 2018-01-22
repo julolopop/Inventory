@@ -18,12 +18,14 @@ public class Dependency implements Comparable<Dependency>,Parcelable{
     private  String name;
     private  String shortname;
     private String description;
+    private String image;
 
     protected Dependency(Parcel in) {
         _ID = in.readInt();
         name = in.readString();
         shortname = in.readString();
         description = in.readString();
+        image = in.readString();
     }
 
     public static final Creator<Dependency> CREATOR = new Creator<Dependency>() {
@@ -37,6 +39,10 @@ public class Dependency implements Comparable<Dependency>,Parcelable{
             return new Dependency[size];
         }
     };
+
+    public String getImage() {
+        return image;
+    }
 
     public int get_ID() {
         return _ID;
@@ -70,21 +76,13 @@ public class Dependency implements Comparable<Dependency>,Parcelable{
         this.description = description;
     }
 
-    public Dependency(int _ID, String name, String shortname, String description) {
+
+    public Dependency(int _ID, String name, String shortname, String description, String image) {
         this._ID = _ID;
         this.name = name;
         this.shortname = shortname;
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Dependency{" +
-                "_ID=" + _ID +
-                ", name='" + name + '\'' +
-                ", shortname='" + shortname + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        this.image = image;
     }
 
     @Override
@@ -121,6 +119,7 @@ public class Dependency implements Comparable<Dependency>,Parcelable{
         dest.writeString(name);
         dest.writeString(shortname);
         dest.writeString(description);
+        dest.writeString(image);
     }
 
     public static class OrderByShortName implements Comparator<Dependency>{
