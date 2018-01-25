@@ -1,5 +1,7 @@
 package com.example.usuario.inventorydb.ui.Dependency.Interactor;
 
+import android.widget.Toast;
+
 import com.example.usuario.inventorydb.data.db.repository.DependencyRepository;
 import com.example.usuario.inventorydb.pojo.Dependency;
 
@@ -9,9 +11,21 @@ import java.util.ArrayList;
  * Created by usuario on 24/11/17.
  */
 
-public class AddDependencyInteractor {
+public class AddDependencyInteractor implements DependencyRepository.OnDependencyRepository{
 
     OnAddDependencyListener listener;
+
+
+    @Override
+    public void onSusses() {
+        listener.OnSuccess();
+    }
+
+    @Override
+    public void onError() {
+
+    }
+
 
     public interface OnAddDependencyListener {
         void OnNameEmpyteError();
@@ -73,7 +87,7 @@ public class AddDependencyInteractor {
     public void EditDependency(String Name, String ShortName, String Description,int pos) {
 
         Dependency dependency = new Dependency(pos,Name,ShortName,Description,null);
-        DependencyRepository.getInstance().editDependency(dependency);
+        DependencyRepository.getInstance().editDependency(dependency,this);
         listener.OnSuccess();
     }
 }

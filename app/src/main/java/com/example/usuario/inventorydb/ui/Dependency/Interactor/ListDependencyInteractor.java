@@ -9,8 +9,18 @@ import java.util.List;
  * Created by usuario on 27/11/17.
  */
 
-public class ListDependencyInteractor{
+public class ListDependencyInteractor implements DependencyRepository.OnDependencyRepository{
     OnLoadDependencyListener listener;
+
+    @Override
+    public void onSusses() {
+
+    }
+
+    @Override
+    public void onError() {
+
+    }
 
 
     public interface OnLoadDependencyListener {

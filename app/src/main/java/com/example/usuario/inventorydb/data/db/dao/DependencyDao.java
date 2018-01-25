@@ -1,6 +1,8 @@
 package com.example.usuario.inventorydb.data.db.dao;
 
+import android.content.ContentValues;
 import android.database.Cursor;
+import android.provider.BaseColumns;
 
 import com.example.usuario.inventorydb.data.db.model.InventoryContract;
 import com.example.usuario.inventorydb.data.db.model.InventoryOpenHelper;
@@ -36,4 +38,29 @@ public class DependencyDao {
     }
 
 
+    public int update(Dependency dependencia) {
+        int estado;
+
+        String whereClasure = BaseColumns._ID+"=?";
+        String[] whereArgs = new String[]{""+dependencia.get_ID()};
+
+
+        estado =InventoryOpenHelper.newInstance().openDatabase().update(InventoryContract.DependencyEntry.TABLE_NAME,contentValues(dependencia),whereClasure,whereArgs);
+
+        InventoryOpenHelper.newInstance().closeDatabase();
+
+        return estado;
+    }
+
+    private ContentValues contentValues(Dependency dependencia) {
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(InventoryContract.DependencyEntry._ID,dependencia.get_ID());
+        contentValues.put(InventoryContract.DependencyEntry.COLUMN_NAME,dependencia.getName());
+        contentValues.put(InventoryContract.DependencyEntry.COLUMN_SHORTNAME,dependencia.getShortname());
+        contentValues.put(InventoryContract.DependencyEntry.COLUMN_DESCRIPTION,dependencia.getDescription());
+        contentValues.put(InventoryContract.DependencyEntry.COLUMN_IMAGENAME,dependencia.getImage());
+
+        return contentValues;
+    }
 }

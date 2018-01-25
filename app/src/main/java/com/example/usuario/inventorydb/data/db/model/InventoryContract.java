@@ -31,7 +31,7 @@ public class InventoryContract {
                         "%s TEXT NO NULL," +
                         "%s TEXT NO NULL," +
                         "%s TEXT NO NULL," +
-                        "%s TEXT NO NULL)",
+                        "%s TEXT)",
                 TABLE_NAME,
                 BaseColumns._ID,
                 COLUMN_NAME,

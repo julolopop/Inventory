@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 import com.example.usuario.inventorydb.data.db.dao.DependencyDao;
 import com.example.usuario.inventorydb.pojo.Dependency;
+import com.example.usuario.inventorydb.ui.Dependency.Interactor.AddDependencyInteractor;
 
 import java.util.ArrayList;
 
@@ -17,12 +18,13 @@ public class DependencyRepository {
     //declaración
     DependencyDao dependencyDao;
     ArrayList<Dependency> dependencies;
-
     private static DependencyRepository dependencyRepository;
-    static {
-        dependencyRepository = new DependencyRepository();
-    }
 
+
+    public interface OnDependencyRepository{
+        void onSusses();
+        void onError();
+    }
     /**
      * El metodo tiene que se privado para asegurar que siempre se ejecute
      */
@@ -32,13 +34,17 @@ public class DependencyRepository {
     }
 
 
-
     //patrón sigletón
     public static DependencyRepository getInstance() {
         if (dependencyRepository == null)
             dependencyRepository = new DependencyRepository();
         return dependencyRepository;
     }
+
+    public ArrayList<Dependency> getDependencies() {
+        return dependencyDao.loadAll();
+    }
+
 
     /**
      * Metodo que añade una dependencia
@@ -49,11 +55,15 @@ public class DependencyRepository {
         this.dependencies.add(dependency);
     }
 
-    public ArrayList<Dependency> getDependencies() {
-        return dependencyDao.loadAll();
-    }
 
-    public void editDependency(Dependency dependencia) {
+    public void editDependency(Dependency dependencia,OnDependencyRepository callback) {
+        int estado;
+        estado = this.dependencyDao.update(dependencia);
+
+       if(estado == 0)
+            callback.onSusses();
+        else
+            callback.onError();
 
     }
 
