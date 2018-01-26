@@ -8,24 +8,4 @@
     android:id="@android:id/content">
 
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!--app:layout_scrollFlags="scroll" importantisimo para moverlo-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_dependency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_scrollFlags="scroll" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcv_Sectores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </android.support.design.widget.CoordinatorLayout>

@@ -33,7 +33,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_eliminar_listdependency">Eliminar dependencia</string>
-    <string name="btnOK" >Ok</string>
+    <string name="btnOK">Ok</string>
     <string name="btnCancel">Cancel</string>
     <string name="byid">ID</string>
     <string name="byshort_name">Short Name</string>

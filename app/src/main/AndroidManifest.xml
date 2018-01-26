@@ -29,7 +29,7 @@
             android:name="com.example.usuario.inventorydb.ui.Dependency.DependencyActivity"/>
         <activity
             android:name="com.example.usuario.inventorydb.ui.Sector.SectorActivity"
-            android:theme="@style/AppTheme1" />
+            android:theme="@style/AppTheme1"/>
         <activity android:name="com.example.usuario.inventorydb.ui.Setting.GeneralSettingActivity" />
         <activity android:name="com.example.usuario.inventorydb.ui.Setting.AccountSettingActivity" />
         <activity android:name="com.example.usuario.inventorydb.ui.about.AboutActivity" />

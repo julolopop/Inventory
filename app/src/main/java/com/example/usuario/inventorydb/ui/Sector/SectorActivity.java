@@ -1,5 +1,6 @@
 package com.example.usuario.inventorydb.ui.Sector;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,60 +17,26 @@ import com.example.usuario.inventorydb.pojo.Sector;
  * @Version 1.0
  * @Descripcion Dependencias con el cual agregamos el adapter a la vista
  */
-public class SectorActivity extends AppCompatActivity {
+public class SectorActivity extends AppCompatActivity implements ListSectorFragment.OnListSectorFragmentListener {
 
-    private RecyclerView recyclerView;
-    private SectorAdapter sectorAdapter;
-    private OnItemClickListener listener;
+    ListSectorFragment listSectorFragment;
 
-
-    public interface  OnItemClickListener{
-        void onItemClick(Sector sector);
-    }
-    private android.support.v7.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        int spanCount = 2;
-
         setContentView(R.layout.activity_sector);
-        recyclerView = (RecyclerView) findViewById(R.id.rcv_Sectores);
-        this.toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar_dependency);
-        //Para que pinte los elementos
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, spanCount));
-        //inicializo el adapter y lo asocio
 
+        listSectorFragment = (ListSectorFragment) getSupportFragmentManager().findFragmentByTag("ListSector");
+        if(listSectorFragment == null){
+            listSectorFragment = new ListSectorFragment();
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(android.R.id.content,listSectorFragment,"ListSector");
+            fragmentTransaction.commit();
+        }
 
-        setSupportActionBar(this.toolbar);
-
-        if (savedInstanceState != null)
-            sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"),listener);
-        else
-            sectorAdapter = new SectorAdapter(listener);
-
-        recyclerView.setAdapter(sectorAdapter);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_activity, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    /**
-     * Almaceno los sectores que han modificado en la vista y no han sido guardados
-     * para
-     * @param outState
-     */
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelableArrayList("sector", sectorAdapter.getSectorsModified());
-    }
 }

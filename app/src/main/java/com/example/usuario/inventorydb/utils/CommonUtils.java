@@ -46,15 +46,15 @@ public final class CommonUtils {
 
     public static ProgressDialog ShowLoadinfDialog(Context context){
         ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.show();
 
         if (progressDialog.getWindow() != null){
             progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
-        //progressDialog.setContentView(R.layout.progress_layout);
-        progressDialog.setIndeterminate(true);
+
+        //progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
+
         return progressDialog;
     }
 

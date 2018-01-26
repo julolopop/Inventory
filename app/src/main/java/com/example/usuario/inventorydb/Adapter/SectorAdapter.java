@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.usuario.inventorydb.R;
 import com.example.usuario.inventorydb.pojo.Sector;
 import com.example.usuario.inventorydb.data.db.repository.SectorRepository;
+import com.example.usuario.inventorydb.ui.Sector.ListSectorFragment;
 import com.example.usuario.inventorydb.ui.Sector.SectorActivity;
 
 import java.util.ArrayList;
@@ -27,18 +28,18 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
     ArrayList<Sector> sectors;
     ArrayList<Sector> sectorsModified;
     private OnSwithCheckedChangeListener onSwithCheckedChangeListener;
-    SectorActivity.OnItemClickListener listener;
+    ListSectorFragment.OnItemClickListener listener;
     /**
      *Constructor que almacenará los cector que se han modifiado en la interfaz y no han guardado aún la base de datos
      */
-    public SectorAdapter(SectorActivity.OnItemClickListener listener){
+    public SectorAdapter(ListSectorFragment.OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = new ArrayList<>();
         onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
         this.listener = listener;
     }
 
-    public SectorAdapter(ArrayList<Sector> sectorsModified, SectorActivity.OnItemClickListener listener){
+    public SectorAdapter(ArrayList<Sector> sectorsModified, ListSectorFragment.OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = sectorsModified;
         onSwithCheckedChangeListener = new OnSwithCheckedChangeListener();
@@ -89,7 +90,7 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorHold
             txv_SectoDefault = (TextView) itemView.findViewById(R.id.txv_SortNameSector);
         }
 
-        public void bind(final Sector sector, final SectorActivity.OnItemClickListener listener){
+        public void bind(final Sector sector, final ListSectorFragment.OnItemClickListener listener){
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

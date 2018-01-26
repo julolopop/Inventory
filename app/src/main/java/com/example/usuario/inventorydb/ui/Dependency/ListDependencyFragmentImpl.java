@@ -1,7 +1,10 @@
 package com.example.usuario.inventorydb.ui.Dependency;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.example.usuario.inventorydb.Adapter.DependencyAdapter;
 import com.example.usuario.inventorydb.R;
@@ -92,9 +96,14 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
      */
     @Override
     public void ShowDependency(List<Dependency> list) {
+        Progreso progreso = new Progreso(getContext());
+        progreso.start();
+
+
         adapter.clear();
         adapter.addAll(list);
     }
+
 
 
 
@@ -194,4 +203,52 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
         super.onCreateOptionsMenu(menu, inflater);
 
     }
+
+
+    class Progreso extends Thread {
+
+        ProgressDialog progressDialog;
+        Context context;
+
+        public Progreso(Context context){
+            this.context = context;
+        }
+
+
+        @Override
+        public void run() {
+            Looper.prepare();
+            progressDialog = CommonUtils.ShowLoadinfDialog(context);
+            progressDialog.show();
+
+            mirarDatos md = new mirarDatos(this);
+            md.start();
+            Looper.loop();
+        }
+
+        public void parar(){
+            progressDialog.dismiss();
+        }
+
+        class mirarDatos extends Thread{
+            Progreso progreso;
+
+            public mirarDatos(Progreso progreso){
+                this.progreso = progreso;
+            }
+            @Override
+            public void run() {
+                Looper.prepare();
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                progreso.parar();
+                Looper.loop();
+            }
+        }
+    }
+
+
 }
