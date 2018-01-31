@@ -55,12 +55,15 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(InventoryContract.DependencyEntry.SQL_DELETE_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_DELETE_ENTRIES);
+        db.execSQL(InventoryContract.ProductosEntry.SQL_DELETE_ENTRIES);
 
         db.execSQL(InventoryContract.DependencyEntry.SQL_CREATE_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.ProductosEntry.SQL_CREATE_ENTRIES);
 
         db.execSQL(InventoryContract.DependencyEntry.SQL_INSERT_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.ProductosEntry.SQL_INSERT_ENTRIES);
     }
 
     @Override
