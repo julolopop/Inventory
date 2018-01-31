@@ -21,5 +21,6 @@ public interface AddDependencyContract {
     interface Presenter extends BasePresenter{
         void ValidateCredentails(String Name, String ShortName,String Description);
         void EditDependency(String Name, String ShortName, String Description,int pos);
+
     }
 }

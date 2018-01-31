@@ -90,6 +90,11 @@ public class AddDependencyFragmentImpl extends Fragment implements AddDependency
     }
 
     @Override
+    public void showDatabaseError(Error error) {
+
+    }
+
+    @Override
     public void SetNameEmpyteError() {
         this.name.setError("Error");
     }

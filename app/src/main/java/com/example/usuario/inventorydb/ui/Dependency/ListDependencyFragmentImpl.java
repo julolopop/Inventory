@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -29,7 +30,10 @@ import com.example.usuario.inventorydb.ui.base.BasePresenter;
 import com.example.usuario.inventorydb.utils.CommonUtils;
 import com.example.usuario.inventorydb.utils.ConfirmationDialog;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by usuario on 23/11/17.
@@ -90,18 +94,20 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
         return  super.onContextItemSelected(item);
     }
 
-    /**
-     * este metodo es el que usa la visata para cargar los datos del repositorio
-     * @param list
-     */
-    @Override
-    public void ShowDependency(List<Dependency> list) {
-        Progreso progreso = new Progreso(getContext());
-        progreso.start();
+
+    public void showDeleteMessage() {
+        Snackbar.make(getView(), "Dependencia eliminada con éxito", Snackbar.LENGTH_SHORT).show();
+    }
 
 
-        adapter.clear();
-        adapter.addAll(list);
+    public void deleteSelectedDependencies(Set<Integer> positions) {
+        Iterator<Integer> iterator = positions.iterator();
+        ArrayList<Dependency> dependencies = new ArrayList<>();
+
+        while (iterator.hasNext())
+            dependencies.add((Dependency) list.getItemAtPosition(iterator.next().intValue()));
+
+        presenter.deleteSelectedDependencies(dependencies);
     }
 
 
@@ -195,6 +201,10 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
         this.presenter = (ListDepencencyPresenter) presenter;
     }
 
+    @Override
+    public void showDatabaseError(Error error) {
+
+    }
 
 
     @Override
@@ -205,50 +215,41 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
     }
 
 
-    class Progreso extends Thread {
 
-        ProgressDialog progressDialog;
-        Context context;
+    ProgressDialog progressDialog;
+    @Override
+    public void showProgressDialog() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(" Progresando...");
 
-        public Progreso(Context context){
-            this.context = context;
+        progressDialog.show();
+    }
+
+
+    @Override
+    public void dismissProgressDialog()
+    {
+        if(progressDialog.isShowing())
+        progressDialog.dismiss();
+
+    }
+
+    @Override
+    public void ShowDependency(List<Dependency> dependencies) {
+        ((DependencyActivity)callback).runOnUiThread(new actualizaz(dependencies));
+    }
+
+    class actualizaz implements Runnable{
+        List<Dependency> dependencies;
+        public actualizaz(List<Dependency> dependencies) {
+        this.dependencies = dependencies;
         }
-
 
         @Override
         public void run() {
-            Looper.prepare();
-            progressDialog = CommonUtils.ShowLoadinfDialog(context);
-            progressDialog.show();
-
-            mirarDatos md = new mirarDatos(this);
-            md.start();
-            Looper.loop();
-        }
-
-        public void parar(){
-            progressDialog.dismiss();
-        }
-
-        class mirarDatos extends Thread{
-            Progreso progreso;
-
-            public mirarDatos(Progreso progreso){
-                this.progreso = progreso;
-            }
-            @Override
-            public void run() {
-                Looper.prepare();
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                progreso.parar();
-                Looper.loop();
-            }
+            adapter.clear();
+            adapter.addAll(dependencies);
         }
     }
-
 
 }

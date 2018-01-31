@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import com.example.usuario.inventorydb.data.db.repository.DependencyRepository;
 import com.example.usuario.inventorydb.pojo.Dependency;
+import com.example.usuario.inventorydb.ui.InteractorCallback;
 
 import java.util.ArrayList;
 
@@ -11,19 +12,22 @@ import java.util.ArrayList;
  * Created by usuario on 24/11/17.
  */
 
-public class AddDependencyInteractor implements DependencyRepository.OnDependencyRepository{
+public class AddDependencyInteractor implements InteractorCallback{
 
     OnAddDependencyListener listener;
 
 
+
+
     @Override
-    public void onSusses() {
+    public void onSuccess() {
         listener.OnSuccess();
     }
 
-    @Override
-    public void onError() {
 
+    @Override
+    public void onError(Error error) {
+        listener.onDatabaseError(error);
     }
 
 
@@ -37,6 +41,8 @@ public class AddDependencyInteractor implements DependencyRepository.OnDependenc
         void OnCloneError();
 
         void OnSuccess();
+
+        void onDatabaseError(Error error);
     }
     public AddDependencyInteractor(OnAddDependencyListener listener) {
         this.listener = listener;
@@ -78,7 +84,7 @@ public class AddDependencyInteractor implements DependencyRepository.OnDependenc
         ArrayList<Dependency> arrayList = DependencyRepository.getInstance().getDependencies();
         int pos = DependencyRepository.getInstance().getDependencies().get(arrayList.toArray().length-1).get_ID();
         Dependency dependency = new Dependency(pos, name, sortname, description,null);
-        DependencyRepository.getInstance().addDependency(dependency);
+        DependencyRepository.getInstance().addDependency(dependency,this);
 
     }
 

@@ -6,4 +6,6 @@ package com.example.usuario.inventorydb.ui.base;
 
 public interface BaseView {
     void setPresenter(BasePresenter presenter);
+
+    void showDatabaseError(Error error);
 }

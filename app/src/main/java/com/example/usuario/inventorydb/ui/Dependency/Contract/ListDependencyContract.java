@@ -5,6 +5,7 @@ import com.example.usuario.inventorydb.ui.base.BasePresenter;
 import com.example.usuario.inventorydb.ui.base.BaseView;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by usuario on 23/11/17.
@@ -12,8 +13,14 @@ import java.util.List;
 
 public interface ListDependencyContract {
     interface View extends BaseView{
-        void ShowDependency(List<Dependency> list);
+        void ShowDependency(List<Dependency> dependencies);
 
+        void showDeleteMessage();
+
+        void deleteSelectedDependencies(Set<Integer> positions);
+        void showProgressDialog();
+
+        void dismissProgressDialog();
     }
     interface Presenter extends BasePresenter{
         void LoadDependency();

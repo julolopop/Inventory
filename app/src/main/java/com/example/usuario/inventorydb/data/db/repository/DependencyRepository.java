@@ -4,9 +4,13 @@ import android.database.Cursor;
 
 import com.example.usuario.inventorydb.data.db.dao.DependencyDao;
 import com.example.usuario.inventorydb.pojo.Dependency;
+import com.example.usuario.inventorydb.pojo.Dependency.OrderByID;
+import com.example.usuario.inventorydb.pojo.Dependency.OrderByShortName;
 import com.example.usuario.inventorydb.ui.Dependency.Interactor.AddDependencyInteractor;
+import com.example.usuario.inventorydb.ui.InteractorCallback;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @Aurtor Juan Manuel Diaz Ortiz
@@ -16,65 +20,78 @@ import java.util.ArrayList;
 
 public class DependencyRepository {
     //declaración
-    DependencyDao dependencyDao;
-    ArrayList<Dependency> dependencies;
-    private static DependencyRepository dependencyRepository;
+    private static DependencyRepository mInstance;
+    private DependencyDao mDao;
 
 
-    public interface OnDependencyRepository{
-        void onSusses();
-        void onError();
-    }
-    /**
-     * El metodo tiene que se privado para asegurar que siempre se ejecute
-     */
     private DependencyRepository() {
-        this.dependencies = new ArrayList<>();
-        this.dependencyDao = new DependencyDao();
+        this.mDao = new DependencyDao();
     }
 
 
-    //patrón sigletón
     public static DependencyRepository getInstance() {
-        if (dependencyRepository == null)
-            dependencyRepository = new DependencyRepository();
-        return dependencyRepository;
+        if (mInstance == null)
+            mInstance = new DependencyRepository();
+
+        return mInstance;
     }
+
 
     public ArrayList<Dependency> getDependencies() {
-        return dependencyDao.loadAll();
+        return mDao.loadAll();
     }
 
 
-
-    /**
-     * Metodo que añade una dependencia
-     *
-     * @param dependency
-     */
-    public void addDependency(Dependency dependency) {
-        this.dependencies.add(dependency);
+    public ArrayList<Dependency> getDependenciesOrderByName() {
+        ArrayList<Dependency> dependencies = mDao.loadAll();
+        Collections.sort(dependencies, new OrderByShortName());
+        return dependencies;
     }
 
 
-    public void editDependency(Dependency dependencia,OnDependencyRepository callback) {
-        int estado;
-        estado = this.dependencyDao.update(dependencia);
+    public ArrayList<Dependency> getDependenciesOrderByID() {
+        ArrayList<Dependency> dependencies = mDao.loadAll();
+        Collections.sort(dependencies, new OrderByID());
+        return dependencies;
+    }
 
-       if(estado == 0)
-            callback.onSusses();
+
+    public void addDependency(Dependency dependency,  InteractorCallback callback) {
+        long id = mDao.add(dependency);
+        Error error = new Error();
+
+        if (id == -1)
+            callback.onError(error);
         else
-            callback.onError();
-
+            callback.onSuccess();
     }
 
-
-    public void deleteDependency(Dependency dependencia) {
-
-    }
 
     public boolean validateDependency(String name, String sortname) {
-        return true;
+        return mDao.exists(name, sortname);
     }
+
+
+    public void editDependency(Dependency dependency, InteractorCallback callback) {
+        int rows = mDao.update(dependency);
+        Error error = new Error();
+
+        if (rows == 0)
+            callback.onError(error);
+        else
+            callback.onSuccess();
+    }
+
+
+    public void deleteDependency(Dependency dependency, InteractorCallback callback) {
+        int rows = mDao.delete(dependency);
+        Error error = new Error();
+
+        if (rows == 0)
+            callback.onError(error);
+        else
+            callback.onSuccess();
+    }
+
 
 }

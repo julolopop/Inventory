@@ -18,6 +18,11 @@ public class AddDepencencyPresenter implements  AddDependencyContract.Presenter,
     }
 
     @Override
+    public void onDatabaseError(Error error) {
+        view.showDatabaseError(error);
+    }
+
+    @Override
     public void ValidateCredentails(String Name, String ShortName, String Description) {
        interactor.ValidateCredentails(Name,ShortName,Description);
     }

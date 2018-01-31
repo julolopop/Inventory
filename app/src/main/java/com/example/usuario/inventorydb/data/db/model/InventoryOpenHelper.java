@@ -42,9 +42,17 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(InventoryContract.DependencyEntry.SQL_CREATE_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.ProductEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.ProductClassEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.CategoryEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.SubcategoryEntry.SQL_CREATE_ENTRIES);
 
         db.execSQL(InventoryContract.DependencyEntry.SQL_INSERT_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.ProductEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.ProductClassEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.CategoryEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.SubcategoryEntry.SQL_INSERT_ENTRIES);
     }
 
     public void crear(SQLiteDatabase db){
@@ -55,15 +63,24 @@ public class InventoryOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(InventoryContract.DependencyEntry.SQL_DELETE_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_DELETE_ENTRIES);
-        db.execSQL(InventoryContract.ProductosEntry.SQL_DELETE_ENTRIES);
+        db.execSQL(InventoryContract.ProductEntry.SQL_DELETE_ENTRIES);
+        db.execSQL(InventoryContract.ProductClassEntry.SQL_DELETE_ENTRIES);
+        db.execSQL(InventoryContract.CategoryEntry.SQL_DELETE_ENTRIES);
+        db.execSQL(InventoryContract.SubcategoryEntry.SQL_DELETE_ENTRIES);
 
         db.execSQL(InventoryContract.DependencyEntry.SQL_CREATE_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_CREATE_ENTRIES);
-        db.execSQL(InventoryContract.ProductosEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.ProductEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.ProductClassEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.CategoryEntry.SQL_CREATE_ENTRIES);
+        db.execSQL(InventoryContract.SubcategoryEntry.SQL_CREATE_ENTRIES);
 
         db.execSQL(InventoryContract.DependencyEntry.SQL_INSERT_ENTRIES);
         db.execSQL(InventoryContract.SectorEntry.SQL_INSERT_ENTRIES);
-        db.execSQL(InventoryContract.ProductosEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.ProductEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.ProductClassEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.CategoryEntry.SQL_INSERT_ENTRIES);
+        db.execSQL(InventoryContract.SubcategoryEntry.SQL_INSERT_ENTRIES);
     }
 
     @Override

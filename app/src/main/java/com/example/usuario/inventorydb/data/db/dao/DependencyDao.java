@@ -2,6 +2,7 @@ package com.example.usuario.inventorydb.data.db.dao;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 import com.example.usuario.inventorydb.data.db.model.InventoryContract;
@@ -18,49 +19,98 @@ import java.util.Observable;
 public class DependencyDao {
 
 
+    ArrayList<Dependency> mDependencies;
 
-    public ArrayList<Dependency> loadAll(){
-        ArrayList<Dependency> arrayList = new ArrayList<>();
 
-        Cursor c = InventoryOpenHelper.newInstance().openDatabase().query(InventoryContract.DependencyEntry.TABLE_NAME,
-                InventoryContract.DependencyEntry.ALL_COLUMNS,
-                null,null,null,null,
-                InventoryContract.DependencyEntry.DEFAULT_ORDER);
-        if (c != null) {
-            while (c.moveToNext()) {
-                arrayList.add(new Dependency(c.getInt(0), c.getString(1),
-                        c.getString(2), c.getString(3),c.getString(4)));
-            }
+
+    public ArrayList<Dependency> loadAll() {
+        SQLiteDatabase sqLiteDatabase = InventoryOpenHelper.newInstance().openDatabase();
+        mDependencies = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.query(InventoryContract.DependencyEntry.TABLE_NAME,InventoryContract.DependencyEntry.ALL_COLUMN,
+                null,null,null,null,InventoryContract.DependencyEntry.ORDER_BY,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Dependency dependency = new Dependency(cursor.getInt(0),cursor.getString(1),cursor.getString(2), cursor.getString(3),
+                        cursor.getString(4));
+                mDependencies.add(dependency);
+            } while(cursor.moveToNext());
         }
 
-        return arrayList;
-
-    }
-
-
-    public int update(Dependency dependencia) {
-        int estado;
-
-        String whereClasure = BaseColumns._ID+"=?";
-        String[] whereArgs = new String[]{""+dependencia.get_ID()};
-
-
-        estado =InventoryOpenHelper.newInstance().openDatabase().update(InventoryContract.DependencyEntry.TABLE_NAME,contentValues(dependencia),whereClasure,whereArgs);
 
         InventoryOpenHelper.newInstance().closeDatabase();
-
-        return estado;
+        return mDependencies;
     }
 
-    private ContentValues contentValues(Dependency dependencia) {
-        ContentValues contentValues = new ContentValues();
 
-        contentValues.put(InventoryContract.DependencyEntry._ID,dependencia.get_ID());
-        contentValues.put(InventoryContract.DependencyEntry.COLUMN_NAME,dependencia.getName());
-        contentValues.put(InventoryContract.DependencyEntry.COLUMN_SHORTNAME,dependencia.getShortname());
-        contentValues.put(InventoryContract.DependencyEntry.COLUMN_DESCRIPTION,dependencia.getDescription());
-        contentValues.put(InventoryContract.DependencyEntry.COLUMN_IMAGENAME,dependencia.getImage());
+    public boolean exists(String name, String sortname) {
+        boolean result = true;
+        int index = 0;
 
-        return contentValues;
+        while (index < mDependencies.size()) {
+            if (name.equals(mDependencies.get(index).getName()) || sortname.equals(mDependencies.get(index).getShortname())) {
+                result = false;
+                index = mDependencies.size();
+            } else
+                index++;
+        }
+
+        return result;
     }
+
+
+    /**
+     * Añade un objeto dependency en la base de datos.
+     * @param dependency
+     * @return
+     */
+    public long add(Dependency dependency) {
+        SQLiteDatabase database = InventoryOpenHelper.newInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        long id;
+
+        values.put(InventoryContract.DependencyEntry.COLUMN_NAME, dependency.getName());
+        values.put(InventoryContract.DependencyEntry.COLUMN_SORTNAME, dependency.getShortname());
+        values.put(InventoryContract.DependencyEntry.COLUMN_DESCRIPTION, dependency.getDescription());
+        values.put(InventoryContract.DependencyEntry.COLUMN_IMAGE, dependency.getImage());
+
+        id = database.insert(InventoryContract.DependencyEntry.TABLE_NAME, null, values);
+        InventoryOpenHelper.newInstance().closeDatabase();
+
+        return id;
+    }
+
+
+    public int delete(Dependency dependency) {
+        SQLiteDatabase database = InventoryOpenHelper.newInstance().openDatabase();
+        String whereClause = InventoryContract.DependencyEntry._ID + "=?";
+        String[] whereArgs = new String[] {String.valueOf(dependency.get_ID())};
+        int rows;
+
+        rows = database.delete(InventoryContract.DependencyEntry.TABLE_NAME, whereClause, whereArgs);
+        InventoryOpenHelper.newInstance().closeDatabase();
+
+        return rows;
+    }
+
+
+    public int update(Dependency dependency) {
+        SQLiteDatabase database = InventoryOpenHelper.newInstance().openDatabase();
+        ContentValues values = new ContentValues();
+        String whereClause = InventoryContract.DependencyEntry._ID + "=?";
+        String[] whereArgs = new String[] {String.valueOf(dependency.get_ID())};
+        int rows;
+
+        values.put(InventoryContract.DependencyEntry.COLUMN_NAME, dependency.getName());
+        values.put(InventoryContract.DependencyEntry.COLUMN_SORTNAME, dependency.getShortname());
+        values.put(InventoryContract.DependencyEntry.COLUMN_DESCRIPTION, dependency.getDescription());
+        values.put(InventoryContract.DependencyEntry.COLUMN_IMAGE, dependency.getImage());
+
+        rows = database.update(InventoryContract.DependencyEntry.TABLE_NAME, values, whereClause, whereArgs);
+        InventoryOpenHelper.newInstance().closeDatabase();
+
+        return rows;
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.example.usuario.inventorydb.ui.Dependency.Presenter;
 
+import android.os.AsyncTask;
+
 import com.example.usuario.inventorydb.data.db.repository.DependencyRepository;
 import com.example.usuario.inventorydb.pojo.Dependency;
 import com.example.usuario.inventorydb.ui.Dependency.Contract.ListDependencyContract;
@@ -14,66 +16,131 @@ import java.util.Map;
  * Created by usuario on 23/11/17.
  */
 
-public class ListDepencencyPresenter implements ListDependencyContract.Presenter ,ListDependencyInteractor.OnLoadDependencyListener{
+public class ListDepencencyPresenter implements ListDependencyContract.Presenter ,ListDependencyInteractor.OnFinishedLoadDependency{
 
     ListDependencyContract.View view;
     ListDependencyInteractor interactor;
+
+    HashMap<Integer, Boolean> mSelection = new HashMap<>();
 
     public ListDepencencyPresenter(ListDependencyContract.View view ) {
         this.view = view;
         this.interactor = new ListDependencyInteractor(this);
     }
 
-    @Override
-    public void LoadDependency() {
-        interactor.getDependency();
+
+
+
+    public void loadDependency() {
+        DependencyAsyncTask asyncTask = new DependencyAsyncTask();
+        asyncTask.execute();
     }
 
-    @Override
-    public void EliminarDependency(Dependency dependencia) {
-        interactor.EliminarDependency(dependencia);
+
+    public void loadDependencyOrderByName() {
+        interactor.loadDependenciesOrderByName();
     }
 
-    HashMap<Integer,Boolean> selection = new HashMap<>();
 
-    @Override
-    public void deleteSelection() {
-        ArrayList<Dependency> dependencies = DependencyRepository.getInstance().getDependencies();
-
-        for (Map.Entry<Integer,Boolean> tmp: selection.entrySet()) {
-            interactor.EliminarDependency(dependencies.get(tmp.getKey()));
-        }
+    public void loadDependencyOrderByID() {
+        interactor.loadDependenciesOrderByID();
     }
+
+
+    public void deleteDependency(Dependency dependency) {
+        interactor.deleteDependency(dependency);
+        view.showDeleteMessage();
+    }
+
 
     @Override
     public void setNewSelection(int position) {
-        selection.put(position,true);
+        mSelection.put(position, true);
     }
 
-    /**
-     * Comprobar si el aelemento esiste en el mapa
-     * @param position
-     * @return
-     */
     @Override
     public boolean isPositionCheked(int position) {
-        return selection.get(position)==null?false:true;
+        return false;
     }
+
 
     @Override
     public void removeSelection(int position) {
-        selection.remove(position);
+        mSelection.remove(position);
     }
-
-
 
 
     @Override
-    public void OnSuccess(List<Dependency> list) {
-        view.ShowDependency(list);
+    public void LoadDependency() {
+            DependencyAsyncTask asyncTask = new DependencyAsyncTask();
+            asyncTask.execute();
+        }
+
+    @Override
+    public void EliminarDependency(Dependency dependencia) {
+
+    }
+
+    @Override
+    public void deleteSelection() {
+        view.deleteSelectedDependencies(mSelection.keySet());
     }
 
 
 
+    public boolean isPositionChecked(int position) {
+        return mSelection.get(position) == null ? false : true;
+    }
 
+
+
+    public void clearSelection() {
+        mSelection.clear();
+    }
+
+
+    public void deleteSelectedDependencies(ArrayList<Dependency> dependencies) {
+        interactor.deleteDependencies(dependencies);
+    }
+
+
+    @Override
+    public void onSuccess(List<Dependency> dependencies) {
+        view.ShowDependency(dependencies);
+    }
+
+
+    public void onDestroy() {
+        view = null;
+        interactor = null;
+    }
+
+
+    class DependencyAsyncTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            view.showProgressDialog();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            interactor.loadDependencies();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            view.dismissProgressDialog();
+        }
+    }
 }

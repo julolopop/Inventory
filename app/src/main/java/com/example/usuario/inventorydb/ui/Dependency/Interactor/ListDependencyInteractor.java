@@ -2,49 +2,81 @@ package com.example.usuario.inventorydb.ui.Dependency.Interactor;
 
 import com.example.usuario.inventorydb.data.db.repository.DependencyRepository;
 import com.example.usuario.inventorydb.pojo.Dependency;
+import com.example.usuario.inventorydb.ui.InteractorCallback;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by usuario on 27/11/17.
  */
 
-public class ListDependencyInteractor implements DependencyRepository.OnDependencyRepository{
-    OnLoadDependencyListener listener;
+public class ListDependencyInteractor implements InteractorCallback{
 
-    @Override
-    public void onSusses() {
-
-    }
-
-    @Override
-    public void onError() {
-
-    }
+    OnFinishedLoadDependency listener;
 
 
-    public interface OnLoadDependencyListener {
-        void OnSuccess(List<Dependency> list);
-
-    }
-
-
-    public ListDependencyInteractor(OnLoadDependencyListener listener) {
+    public ListDependencyInteractor(OnFinishedLoadDependency listener) {
         this.listener = listener;
     }
 
-    public void getDependency() {
-        listener.OnSuccess(DependencyRepository.getInstance().getDependencies());
+
+    public interface OnFinishedLoadDependency {
+        void onSuccess(List<Dependency> list);
     }
 
-    public void EliminarDependency(Dependency dependencia){
 
 
-        DependencyRepository d = DependencyRepository.getInstance();
-        d.getInstance().deleteDependency(dependencia);
-        listener.OnSuccess(d.getInstance().getDependencies());
+    public void loadDependencies() {
+        listener.onSuccess(DependencyRepository.getInstance().getDependencies());
     }
 
+
+
+    public void loadDependenciesOrderByName() {
+        listener.onSuccess(DependencyRepository.getInstance().getDependenciesOrderByName());
+    }
+
+
+
+    public void loadDependenciesOrderByID() {
+        listener.onSuccess(DependencyRepository.getInstance().getDependenciesOrderByID());
+    }
+
+
+
+    public void deleteDependency(Dependency dependency) {
+        DependencyRepository.getInstance().deleteDependency(dependency, this);
+        listener.onSuccess(DependencyRepository.getInstance().getDependencies());
+    }
+
+
+
+    public void deleteDependencies(ArrayList<Dependency> dependencies) {
+        for (int i = 0; i < dependencies.size(); i++)
+            DependencyRepository.getInstance().deleteDependency(dependencies.get(i), this);
+
+        listener.onSuccess(DependencyRepository.getInstance().getDependencies());
+    }
+
+
+
+    public Dependency getDependency(int position) {
+        //return DependencyRepository.getInstance().getDependencyAtPosition(position);
+        return null;
+    }
+
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+
+    @Override
+    public void onError(Error error) {
+
+    }
 
 
 }
