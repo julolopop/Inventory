@@ -24,7 +24,8 @@
             android:theme="@style/LoginTheme" />
         <activity android:name="com.example.usuario.inventorydb.ui.inventory.InventoryActivity" />
         <activity android:name="com.example.usuario.inventorydb.ui.Dashboard.DashBoardActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.Product.ProductosActivity" />
+        <activity android:name="com.example.usuario.inventorydb.ui.Product.ProductosActivity"
+            android:theme="@style/AppTheme1"/>
         <activity
             android:name="com.example.usuario.inventorydb.ui.Dependency.DependencyActivity"/>
         <activity

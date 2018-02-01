@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.provider.BaseColumns;
 
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by usuario on 19/01/18.
@@ -246,9 +247,9 @@ public class InventoryContract {
         public static final String TABLE_NAME = "product";
         public static final String COLUMN_SERIAL = "serial";
         public static final String COLUMN_MODELCODE = "modelCode";
-        public static final String COLUMN_SORTNAME = "sortname";
+        public static final String COLUMN_SORTNAME = "shortname";
         public static final String COLUMN_DESCRIPTION = "description";
-        public static final String COLUMN_CATEGORY = "category";
+        public static final String COLUMN_CATEGORYID = "categoryID";
         public static final String COLUMN_SUBCATEGORY = "subcategory";
         public static final String COLUMN_PRODUCTCLASS = "productClass";
         public static final String COLUMN_SECTOR = "sector";
@@ -262,7 +263,7 @@ public class InventoryContract {
         public static final String COLUMN_NOTES = "notes";
 
         public static final String[] ALL_COLUMNS = new String[] {
-                _ID, COLUMN_SERIAL, COLUMN_MODELCODE, COLUMN_SORTNAME, COLUMN_DESCRIPTION, COLUMN_CATEGORY,
+                _ID, COLUMN_SERIAL, COLUMN_MODELCODE, COLUMN_SORTNAME, COLUMN_DESCRIPTION, COLUMN_CATEGORYID,
                 COLUMN_SUBCATEGORY, COLUMN_PRODUCTCLASS, COLUMN_SECTOR, COLUMN_QUANTITY, COLUMN_VALUE, COLUMN_VENDOR,
                 COLUMN_BITMAP, COLUMN_IMAGENAME, COLUMN_URL, COLUMN_DATEPURCHASE, COLUMN_NOTES
         };
@@ -307,7 +308,7 @@ public class InventoryContract {
                 COLUMN_MODELCODE,
                 COLUMN_SORTNAME,
                 COLUMN_DESCRIPTION,
-                COLUMN_CATEGORY, REFERENCES_CATEGORY_ID,
+                COLUMN_CATEGORYID, REFERENCES_CATEGORY_ID,
                 COLUMN_SUBCATEGORY, REFERENCES_SUBCATEGORY_ID,
                 COLUMN_PRODUCTCLASS, REFERENCES_PRODUCTCLASS_ID,
                 COLUMN_SECTOR, REFERENCES_SECTOR_ID,
@@ -330,7 +331,7 @@ public class InventoryContract {
                 COLUMN_MODELCODE,
                 COLUMN_SORTNAME,
                 COLUMN_DESCRIPTION,
-                COLUMN_CATEGORY,
+                COLUMN_CATEGORYID,
                 COLUMN_SUBCATEGORY,
                 COLUMN_PRODUCTCLASS,
                 COLUMN_SECTOR,
@@ -358,5 +359,39 @@ public class InventoryContract {
                 "Sin url",
                 "29-04-2017",
                 "Producto de prueba");
+    }
+
+
+    public static class ProductInnerEntry implements BaseColumns {
+        public static final String TABLE_NAME = "product";
+        public static final String COLUMN_SERIAL = "serial";
+        public static final String COLUMN_MODELCODE = "modelCode";
+        public static final String COLUMN_SORTNAME = "shortname";
+        public static final String COLUMN_DESCRIPTION = "description";
+        public static final String COLUMN_CATEGORYNAME = "categoryName";
+        public static final String COLUMN_CATEGORYID = "categoryID";
+        public static final String COLUMN_SUBCATEGORY = "subcategory";
+        public static final String COLUMN_PRODUCTCLASS = "productClass";
+        public static final String COLUMN_SECTOR = "sector";
+        public static final String COLUMN_QUANTITY = "quantity";
+        public static final String COLUMN_VALUE = "value";
+        public static final String COLUMN_VENDOR = "vendor";
+        public static final String COLUMN_BITMAP = "bitmap";
+        public static final String COLUMN_IMAGENAME = "imageName";
+        public static final String COLUMN_URL = "url";
+        public static final String COLUMN_DATEPURCHASE = "datePurchase";
+        public static final String COLUMN_NOTES = "notes";
+
+        public static final String[] ALL_COLUMNS = new String[] {
+                _ID, COLUMN_SERIAL, COLUMN_MODELCODE, COLUMN_SORTNAME, COLUMN_DESCRIPTION, COLUMN_CATEGORYNAME,
+                COLUMN_SUBCATEGORY, COLUMN_PRODUCTCLASS, COLUMN_SECTOR, COLUMN_QUANTITY, COLUMN_VALUE, COLUMN_VENDOR,
+                COLUMN_BITMAP, COLUMN_IMAGENAME, COLUMN_URL, COLUMN_DATEPURCHASE, COLUMN_NOTES
+        };
+
+        public static HashMap<String,String> sProductInner;
+        static {
+            sProductInner = new HashMap<>();
+            sProductInner.put(ProductEntry._ID,ProductEntry.TABLE_NAME+"."+ProductEntry._ID);
+        }
     }
 }
