@@ -150,6 +150,8 @@ public class ProductDao {
                 InventoryContract.ProductEntry.COLUMN_SORTNAME+"=?", args, null, null,
                 null, null
         );
+
+
         if (cursor.moveToFirst()) {
             do {
                 products.add(new Productos(

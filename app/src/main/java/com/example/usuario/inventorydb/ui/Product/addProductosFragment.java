@@ -9,11 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import com.example.usuario.inventorydb.Adapter.ProductAdapter;
 import com.example.usuario.inventorydb.R;
+import com.example.usuario.inventorydb.pojo.Category;
 import com.example.usuario.inventorydb.pojo.Productos;
+import com.example.usuario.inventorydb.pojo.SubCategory;
 import com.example.usuario.inventorydb.ui.Product.presenter.ListProductospresenter;
 import com.example.usuario.inventorydb.ui.Product.presenter.addProductospresenter;
 
@@ -26,6 +31,8 @@ public class addProductosFragment extends Fragment implements View.OnClickListen
     private OnaddProductFragmentListener listener;
 
     private FloatingActionButton fab;
+    private Spinner spn_Categoria;
+    private Spinner spn_SubCategoria;
 
     private addProductospresenter presenter;
 
@@ -47,9 +54,12 @@ public class addProductosFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.fragment_add_productos, container, false);
 
         this.fab = view.findViewById(R.id.fab);
-        
+        this.spn_Categoria = view.findViewById(R.id.spn_Categoria);
+        this.spn_SubCategoria = view.findViewById(R.id.spn_SubCategoria);
         
         this.fab.setOnClickListener(this);
+
+        presenter.cargarSppiner();
         
         return view;
     }
@@ -75,6 +85,13 @@ public class addProductosFragment extends Fragment implements View.OnClickListen
 
     public void gotoListProductosView() {
         listener.gotoListProductosActivity();
+    }
+
+
+
+    public void cargarSppinerView(ArrayList<Category> categories, ArrayList<SubCategory> subCategories) {
+        this.spn_Categoria.setAdapter(new ArrayAdapter<Category>(getContext(), android.R.layout.simple_spinner_item,categories));
+        this.spn_SubCategoria.setAdapter(new ArrayAdapter<SubCategory>(getContext(), android.R.layout.simple_spinner_item,subCategories));
     }
 
 

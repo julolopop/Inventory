@@ -1,6 +1,8 @@
 package com.example.usuario.inventorydb.ui.Product.presenter;
 
+import com.example.usuario.inventorydb.pojo.Category;
 import com.example.usuario.inventorydb.pojo.Productos;
+import com.example.usuario.inventorydb.pojo.SubCategory;
 import com.example.usuario.inventorydb.ui.Product.ListProductosFragment;
 import com.example.usuario.inventorydb.ui.Product.addProductosFragment;
 import com.example.usuario.inventorydb.ui.Product.interactor.ListProductosInteractor;
@@ -29,5 +31,16 @@ public class addProductospresenter {
 
     public void gotoListProductosPresenter() {
         view.gotoListProductosView();
+    }
+
+
+
+
+    public void cargarSppiner() {
+        interactor.cargarSppinerInteractor();
+    }
+
+    public void cargarSppinerPresenter(ArrayList<Category> categories, ArrayList<SubCategory> subCategories) {
+        view.cargarSppinerView(categories,subCategories);
     }
 }
