@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.example.usuario.inventorydb.data.db.model.InventoryContract;
 import com.example.usuario.inventorydb.data.db.model.InventoryOpenHelper;
@@ -142,14 +143,25 @@ public class ProductDao {
 
 
         String[] args =new String[]{shortName};
-        //rawQuery interpreta el comando usando '?' en la consulta.
-        //A medio camino entre SQL y SQLite
-        Cursor cursor = db.query(
-                InventoryContract.ProductEntry.TABLE_NAME,
-                InventoryContract.ProductEntry.ALL_COLUMNS,
-                InventoryContract.ProductEntry.COLUMN_SORTNAME+"=?", args, null, null,
-                null, null
+
+        SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
+        sqLiteQueryBuilder.setTables(InventoryContract.ProductInnerEntry.PRODUCT_INNER);
+        sqLiteQueryBuilder.setProjectionMap(InventoryContract.ProductInnerEntry.sProductInnerProjectionMap);
+
+        String selection = InventoryContract.ProductInnerEntry.TABLE_NAME+"."+InventoryContract.ProductInnerEntry.COLUMN_DESCRIPTION+"=?";
+
+        // 1. Vamos a mostrar si la consulta es correcta
+        Cursor cursor = sqLiteQueryBuilder.query(
+                db,
+                InventoryContract.ProductInnerEntry.ALL_COLUMNS,
+                selection,
+                args,
+                null,
+                null,
+                null,
+                null
         );
+
 
 
         if (cursor.moveToFirst()) {
