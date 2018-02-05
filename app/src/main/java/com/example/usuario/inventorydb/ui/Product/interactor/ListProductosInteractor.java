@@ -1,5 +1,6 @@
 package com.example.usuario.inventorydb.ui.Product.interactor;
 
+import com.example.usuario.inventorydb.data.db.repository.ProductInnerRepository;
 import com.example.usuario.inventorydb.data.db.repository.ProductRepository;
 import com.example.usuario.inventorydb.ui.Product.presenter.ListProductospresenter;
 import com.example.usuario.inventorydb.ui.Sector.presenter.ListSectorPresenter;
@@ -26,7 +27,7 @@ public class ListProductosInteractor {
     }
 
     public void verProductoInteractor(String shorthname) {
-        String mensage = ProductRepository.getInstance().getProduct(shorthname).get(0).toString();
+        String mensage = ProductInnerRepository.getInstance().getProduct(shorthname).get(0).toString();
         presenter.verProductoPresenter(mensage);
     }
 }

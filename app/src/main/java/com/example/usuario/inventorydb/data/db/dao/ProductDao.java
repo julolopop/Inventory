@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import com.example.usuario.inventorydb.data.db.model.InventoryContract;
 import com.example.usuario.inventorydb.data.db.model.InventoryOpenHelper;
 import com.example.usuario.inventorydb.pojo.Productos;
+import com.example.usuario.inventorydb.pojo.ProductosInner;
 
 import java.util.ArrayList;
 
@@ -137,18 +138,18 @@ public class ProductDao {
         return contentValues;
     }
 
-    public ArrayList<Productos> loadProducto(String shortName) {
-        ArrayList<Productos> products = new ArrayList<>();
+    public ArrayList<ProductosInner> loadProducto(String shortName) {
+        ArrayList<ProductosInner> products = new ArrayList<>();
         SQLiteDatabase db = InventoryOpenHelper.newInstance().openDatabase();
 
 
-        String[] args =new String[]{shortName};
+        String[] args = new String[]{shortName};
 
         SQLiteQueryBuilder sqLiteQueryBuilder = new SQLiteQueryBuilder();
         sqLiteQueryBuilder.setTables(InventoryContract.ProductInnerEntry.PRODUCT_INNER);
         sqLiteQueryBuilder.setProjectionMap(InventoryContract.ProductInnerEntry.sProductInnerProjectionMap);
 
-        String selection = InventoryContract.ProductInnerEntry.TABLE_NAME+"."+InventoryContract.ProductInnerEntry.COLUMN_DESCRIPTION+"=?";
+        String selection = InventoryContract.ProductInnerEntry.TABLE_NAME + "." + InventoryContract.ProductInnerEntry.COLUMN_DESCRIPTION + "=?";
 
         // 1. Vamos a mostrar si la consulta es correcta
         Cursor cursor = sqLiteQueryBuilder.query(
@@ -163,19 +164,18 @@ public class ProductDao {
         );
 
 
-
         if (cursor.moveToFirst()) {
             do {
-                products.add(new Productos(
+                products.add(new ProductosInner(
                                 cursor.getInt(0),
                                 cursor.getInt(1),
                                 cursor.getString(2),
                                 cursor.getString(3),
                                 cursor.getString(4),
                                 cursor.getString(5),
-                                cursor.getInt(6),
-                                cursor.getInt(7),
-                                cursor.getInt(8),
+                                cursor.getString(6),
+                                cursor.getString(7),
+                                cursor.getString(8),
                                 cursor.getInt(9),
                                 cursor.getFloat(10),
                                 cursor.getString(11),

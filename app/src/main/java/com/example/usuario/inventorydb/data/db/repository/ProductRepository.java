@@ -38,7 +38,4 @@ public class ProductRepository {
         long id = productDao.add(product);
     }
 
-    public ArrayList<Productos> getProduct(String shortName) {
-        return productDao.loadProducto(shortName);
-    }
 }
