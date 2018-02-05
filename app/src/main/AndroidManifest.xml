@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.usuario.inventorydb">
+    package="com.example.usuario.inventoryprovaider">
 
     <application
         android:allowBackup="true"
@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.example.usuario.inventorydb.InventoryApplication">
+        android:name="com.example.usuario.inventoryprovaider.InventoryApplication">
 
         <activity
-            android:name="com.example.usuario.inventorydb.ui.Splash.SplashActivity"
+            android:name="com.example.usuario.inventoryprovaider.ui.Splash.SplashActivity"
             android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,21 +20,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.usuario.inventorydb.ui.login.LoginViewImpl"
+            android:name="com.example.usuario.inventoryprovaider.ui.login.LoginViewImpl"
             android:theme="@style/LoginTheme" />
-        <activity android:name="com.example.usuario.inventorydb.ui.inventory.InventoryActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.Dashboard.DashBoardActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.Product.ProductosActivity"
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.inventory.InventoryActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.Dashboard.DashBoardActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.Product.ProductosActivity"
             android:theme="@style/AppTheme1"/>
         <activity
-            android:name="com.example.usuario.inventorydb.ui.Dependency.DependencyActivity"/>
+            android:name="com.example.usuario.inventoryprovaider.ui.Dependency.DependencyActivity"/>
         <activity
-            android:name="com.example.usuario.inventorydb.ui.Sector.SectorActivity"
+            android:name="com.example.usuario.inventoryprovaider.ui.Sector.SectorActivity"
             android:theme="@style/AppTheme1"/>
-        <activity android:name="com.example.usuario.inventorydb.ui.Setting.GeneralSettingActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.Setting.AccountSettingActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.about.AboutActivity" />
-        <activity android:name="com.example.usuario.inventorydb.ui.base.BaseActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.Setting.GeneralSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.Setting.AccountSettingActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.about.AboutActivity" />
+        <activity android:name="com.example.usuario.inventoryprovaider.ui.base.BaseActivity" />
     </application>
 
 </manifest>
