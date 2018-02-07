@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
  */
 
 public class InventoryProvaiderContract {
-    private static final String  AUTHORITY = "com.example.usuario.inventoryprovaider";
+    public static final String  AUTHORITY = "com.example.usuario.inventoryprovaider";
     public static final Uri AUTHORITY_URI = Uri.parse("Content://"+AUTHORITY);
 
     private InventoryProvaiderContract(){

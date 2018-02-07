@@ -1,5 +1,6 @@
 package com.example.usuario.inventoryprovaider.data.db.repository;
 
+import com.example.usuario.inventoryprovaider.data.base.IDependencyDao;
 import com.example.usuario.inventoryprovaider.data.db.dao.DependencyDao;
 import com.example.usuario.inventoryprovaider.pojo.Dependency;
 import com.example.usuario.inventoryprovaider.pojo.Dependency.OrderByID;
@@ -18,7 +19,7 @@ import java.util.Collections;
 public class DependencyRepository {
     //declaración
     private static DependencyRepository mInstance;
-    private DependencyDao mDao;
+    private IDependencyDao mDao;
 
 
     private DependencyRepository() {

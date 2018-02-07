@@ -35,6 +35,12 @@
         <activity android:name="com.example.usuario.inventoryprovaider.ui.Setting.AccountSettingActivity" />
         <activity android:name="com.example.usuario.inventoryprovaider.ui.about.AboutActivity" />
         <activity android:name="com.example.usuario.inventoryprovaider.ui.base.BaseActivity" />
+
+        <provider
+            android:authorities="com.example.usuario.inventoryprovaider"
+            android:name=".provaider.InventoryProvaider"
+            />
+
     </application>
 
 </manifest>
