@@ -1,6 +1,7 @@
 package com.example.usuario.inventoryprovaider.ui.Dependency.Contract;
 
 import com.example.usuario.inventoryprovaider.pojo.Dependency;
+import com.example.usuario.inventoryprovaider.ui.Dependency.DependencyActivity;
 import com.example.usuario.inventoryprovaider.ui.base.BasePresenter;
 import com.example.usuario.inventoryprovaider.ui.base.BaseView;
 
@@ -23,7 +24,7 @@ public interface ListDependencyContract {
         void dismissProgressDialog();
     }
     interface Presenter extends BasePresenter{
-        void LoadDependency();
+        void LoadDependency(DependencyActivity callback);
         void EliminarDependency(Dependency dependencia);
 
         void deleteSelection();

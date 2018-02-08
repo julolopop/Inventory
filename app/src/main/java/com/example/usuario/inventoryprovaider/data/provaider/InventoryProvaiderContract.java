@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryprovaider.provaider;
+package com.example.usuario.inventoryprovaider.data.provaider;
 
 import android.net.Uri;
 import android.provider.BaseColumns;

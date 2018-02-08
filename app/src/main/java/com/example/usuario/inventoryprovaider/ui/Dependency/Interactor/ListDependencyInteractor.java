@@ -1,7 +1,9 @@
 package com.example.usuario.inventoryprovaider.ui.Dependency.Interactor;
 
+import com.example.usuario.inventoryprovaider.InventoryApplication;
 import com.example.usuario.inventoryprovaider.data.db.repository.DependencyRepository;
 import com.example.usuario.inventoryprovaider.pojo.Dependency;
+import com.example.usuario.inventoryprovaider.ui.Dependency.DependencyActivity;
 import com.example.usuario.inventoryprovaider.ui.InteractorCallback;
 
 import java.util.ArrayList;
@@ -27,9 +29,16 @@ public class ListDependencyInteractor implements InteractorCallback{
 
 
 
-    public void loadDependencies() {
-        listener.onSuccess(DependencyRepository.getInstance().getDependencies());
+    public void loadDependencies(DependencyActivity dependencyActivity) {
+        dependencyActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                listener.onSuccess(DependencyRepository.getInstance().getDependencies());
+            }
+        });
+
     }
+
 
 
 

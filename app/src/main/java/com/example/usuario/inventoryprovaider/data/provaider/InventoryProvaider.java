@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryprovaider.provaider;
+package com.example.usuario.inventoryprovaider.data.provaider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -43,20 +43,24 @@ public class InventoryProvaider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+
         sqLiteDatabase = InventoryOpenHelper.newInstance().openDatabase();
         return false;
     }
 
+
+
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        Cursor cursor = null;
         switch (URI_MATCHER.match(uri)){
             case PRODUCT:
                 break;
             case PRODUCT_ID:
                 break;
             case DEPENDENCY:
-                sqLiteDatabase.query(InventoryContract.DependencyEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
+                cursor =sqLiteDatabase.query(InventoryContract.DependencyEntry.TABLE_NAME,projection,selection,selectionArgs,null,null,sortOrder);
                 break;
             case DEPENDENCY_ID:
                 break;
@@ -67,7 +71,7 @@ public class InventoryProvaider extends ContentProvider {
 
         }
 
-        return null;
+        return cursor;
     }
 
     @Nullable
@@ -79,7 +83,27 @@ public class InventoryProvaider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        return null;
+        Uri result = null;
+
+        switch (URI_MATCHER.match(uri)){
+            case PRODUCT:
+                break;
+            case PRODUCT_ID:
+                break;
+            case DEPENDENCY:
+                sqLiteDatabase.insert(InventoryContract.DependencyEntry.TABLE_NAME,null,values);
+                result = Uri.parse(InventoryProvaiderContract.AUTHORITY+InventoryProvaiderContract.Dependency.CONTENT_PATH);
+                break;
+            case DEPENDENCY_ID:
+                break;
+            case SECTOR:
+                break;
+            case SECTOR_ID:
+                break;
+
+        }
+
+        return result;
     }
 
     @Override

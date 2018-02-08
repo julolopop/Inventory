@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.example.usuario.inventoryprovaider.pojo.Dependency;
 import com.example.usuario.inventoryprovaider.ui.Dependency.Contract.ListDependencyContract;
+import com.example.usuario.inventoryprovaider.ui.Dependency.DependencyActivity;
 import com.example.usuario.inventoryprovaider.ui.Dependency.Interactor.ListDependencyInteractor;
 
 import java.util.ArrayList;
@@ -69,9 +70,9 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
 
 
     @Override
-    public void LoadDependency() {
+    public void LoadDependency(DependencyActivity callback) {
             DependencyAsyncTask asyncTask = new DependencyAsyncTask();
-            asyncTask.execute();
+            asyncTask.execute(callback);
         }
 
     @Override
@@ -114,7 +115,23 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
     }
 
 
-    class DependencyAsyncTask extends AsyncTask<Void, Void, Void> {
+    class DependencyAsyncTask extends AsyncTask<DependencyActivity, Void, Void> {
+
+
+
+        @Override
+        protected Void doInBackground(DependencyActivity... dependencyActivities) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+            interactor.loadDependencies(dependencyActivities[0]);
+            return null;
+        }
 
         @Override
         protected void onPreExecute() {
@@ -122,17 +139,7 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
             view.showProgressDialog();
         }
 
-        @Override
-        protected Void doInBackground(Void... voids) {
 
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            interactor.loadDependencies();
-            return null;
-        }
 
         @Override
         protected void onPostExecute(Void aVoid) {

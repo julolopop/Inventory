@@ -38,7 +38,7 @@
 
         <provider
             android:authorities="com.example.usuario.inventoryprovaider"
-            android:name=".provaider.InventoryProvaider"
+            android:name=".data.provaider.InventoryProvaider"
             />
 
     </application>
