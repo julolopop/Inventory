@@ -1,7 +1,7 @@
 package com.example.usuario.inventoryprovaider.data.db.repository;
 
 import com.example.usuario.inventoryprovaider.data.base.IDependencyDao;
-import com.example.usuario.inventoryprovaider.data.provaider.dao.DependencyDao;
+import com.example.usuario.inventoryprovaider.data.db.dao.DependencyDao;
 import com.example.usuario.inventoryprovaider.pojo.Dependency;
 import com.example.usuario.inventoryprovaider.pojo.Dependency.OrderByID;
 import com.example.usuario.inventoryprovaider.pojo.Dependency.OrderByShortName;

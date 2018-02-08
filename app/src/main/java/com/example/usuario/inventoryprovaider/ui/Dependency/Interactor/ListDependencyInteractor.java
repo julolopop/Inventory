@@ -13,7 +13,7 @@ import java.util.List;
  * Created by usuario on 27/11/17.
  */
 
-public class ListDependencyInteractor implements InteractorCallback{
+public class ListDependencyInteractor implements InteractorCallback {
 
     OnFinishedLoadDependency listener;
 
@@ -28,18 +28,9 @@ public class ListDependencyInteractor implements InteractorCallback{
     }
 
 
-
-    public void loadDependencies(DependencyActivity dependencyActivity) {
-        dependencyActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                listener.onSuccess(DependencyRepository.getInstance().getDependencies());
-            }
-        });
-
+    public void loadDependencies() {
+        listener.onSuccess(DependencyRepository.getInstance().getDependencies());
     }
-
-
 
 
     public void loadDependenciesOrderByName() {
@@ -47,11 +38,9 @@ public class ListDependencyInteractor implements InteractorCallback{
     }
 
 
-
     public void loadDependenciesOrderByID() {
         listener.onSuccess(DependencyRepository.getInstance().getDependenciesOrderByID());
     }
-
 
 
     public void deleteDependency(Dependency dependency) {
@@ -60,14 +49,12 @@ public class ListDependencyInteractor implements InteractorCallback{
     }
 
 
-
     public void deleteDependencies(ArrayList<Dependency> dependencies) {
         for (int i = 0; i < dependencies.size(); i++)
             DependencyRepository.getInstance().deleteDependency(dependencies.get(i), this);
 
         listener.onSuccess(DependencyRepository.getInstance().getDependencies());
     }
-
 
 
     public Dependency getDependency(int position) {

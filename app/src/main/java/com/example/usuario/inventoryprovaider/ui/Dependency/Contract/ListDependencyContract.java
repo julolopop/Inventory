@@ -24,7 +24,7 @@ public interface ListDependencyContract {
         void dismissProgressDialog();
     }
     interface Presenter extends BasePresenter{
-        void LoadDependency(DependencyActivity callback);
+        void LoadDependency();
         void EliminarDependency(Dependency dependencia);
 
         void deleteSelection();

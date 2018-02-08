@@ -70,9 +70,9 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
 
 
     @Override
-    public void LoadDependency(DependencyActivity callback) {
+    public void LoadDependency() {
             DependencyAsyncTask asyncTask = new DependencyAsyncTask();
-            asyncTask.execute(callback);
+            asyncTask.execute();
         }
 
     @Override
@@ -115,13 +115,11 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
     }
 
 
-    class DependencyAsyncTask extends AsyncTask<DependencyActivity, Void, Void> {
-
+    class DependencyAsyncTask extends AsyncTask<Void, Void, Void> {
 
 
         @Override
-        protected Void doInBackground(DependencyActivity... dependencyActivities) {
-
+        protected Void doInBackground(Void... voids) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -129,7 +127,7 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
             }
 
 
-            interactor.loadDependencies(dependencyActivities[0]);
+            interactor.loadDependencies();
             return null;
         }
 

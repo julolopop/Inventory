@@ -77,6 +77,35 @@ public class InventoryProvaider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
+
+        switch (URI_MATCHER.match(uri)){
+            case PRODUCT:
+                return ("vnd.android.cursor.dir/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Product.CONTENT_PATH);
+
+            case PRODUCT_ID:
+                return ("vnd.android.cursor.item/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Product.CONTENT_PATH);
+
+            case DEPENDENCY:
+                return ("vnd.android.cursor.dir/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Dependency.CONTENT_PATH);
+
+            case DEPENDENCY_ID:
+                return ("vnd.android.cursor.item/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Dependency.CONTENT_PATH);
+
+            case SECTOR:
+                return ("vnd.android.cursor.dir/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Sector.CONTENT_PATH);
+
+            case SECTOR_ID:
+                return ("vnd.android.cursor.item/vnd.com.example.usuario.inventoryprovaider.data.provaider/"+
+                        InventoryProvaiderContract.Sector.CONTENT_PATH);
+
+
+        }
+
         return null;
     }
 
@@ -92,7 +121,7 @@ public class InventoryProvaider extends ContentProvider {
                 break;
             case DEPENDENCY:
                 sqLiteDatabase.insert(InventoryContract.DependencyEntry.TABLE_NAME,null,values);
-                result = Uri.parse(InventoryProvaiderContract.AUTHORITY+InventoryProvaiderContract.Dependency.CONTENT_PATH);
+                result = Uri.parse(InventoryProvaiderContract.AUTHORITY+InventoryProvaiderContract.Dependency.CONTENT_PATH+"/"+InventoryProvaiderContract.Dependency._ID);
                 break;
             case DEPENDENCY_ID:
                 break;

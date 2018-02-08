@@ -149,7 +149,7 @@ public class ListDependencyFragmentImpl extends Fragment implements ListDependen
                 callback.addNewDependency(null);
             }
         });
-        presenter.LoadDependency(((DependencyActivity)callback));
+        presenter.LoadDependency();
                 return rootView;
     }
 
