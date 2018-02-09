@@ -17,7 +17,7 @@ public class SubCategoryRepository {
         subCategoryRepository = new SubCategoryRepository();
     }
 
-    private SubCategoryDao subCategoryDao;
+    private ISubCategoryDao subCategoryDao;
 
     private SubCategoryRepository() {
         subCategoryDao = new SubCategoryDao();

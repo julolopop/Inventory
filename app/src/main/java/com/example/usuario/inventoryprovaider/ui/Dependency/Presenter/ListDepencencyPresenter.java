@@ -120,11 +120,6 @@ public class ListDepencencyPresenter implements ListDependencyContract.Presenter
 
         @Override
         protected Void doInBackground(Void... voids) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
 
             interactor.loadDependencies();

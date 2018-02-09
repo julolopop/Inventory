@@ -1,4 +1,4 @@
-package com.example.usuario.inventoryprovaider.data.db.dao;
+package com.example.usuario.inventoryprovaider.data.provaider.dao;
 
 import android.content.ContentValues;
 import android.database.Cursor;

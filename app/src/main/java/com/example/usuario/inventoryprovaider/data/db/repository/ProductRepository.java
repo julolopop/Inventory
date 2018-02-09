@@ -17,7 +17,7 @@ public class ProductRepository {
         productRepository = new ProductRepository();
     }
 
-    private ProductDao productDao;
+    private IProductDao productDao;
 
     private ProductRepository() {
         productDao = new ProductDao();

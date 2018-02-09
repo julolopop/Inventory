@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 
 public class InventoryProvaiderContract {
     public static final String  AUTHORITY = "com.example.usuario.inventoryprovaider";
-    public static final Uri AUTHORITY_URI = Uri.parse("Content://"+AUTHORITY);
+    public static final Uri AUTHORITY_URI = Uri.parse("content://"+AUTHORITY);
 
     private InventoryProvaiderContract(){
 

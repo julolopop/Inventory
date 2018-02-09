@@ -1,5 +1,6 @@
 package com.example.usuario.inventoryprovaider.data.db.repository;
 
+import com.example.usuario.inventoryprovaider.data.base.ICategoryDao;
 import com.example.usuario.inventoryprovaider.data.db.dao.CategoryDao;
 import com.example.usuario.inventoryprovaider.pojo.Category;
 
@@ -17,7 +18,7 @@ public class CategoryRepository {
         categoryRepository = new CategoryRepository();
     }
 
-    private CategoryDao categoryDao;
+    private ICategoryDao categoryDao;
 
     private CategoryRepository() {
         categoryDao = new CategoryDao();
